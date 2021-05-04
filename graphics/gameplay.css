@@ -89,9 +89,22 @@ body {
     right: 25px;
 }
 
+#left-team-score-mode, #right-team-score-mode {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 #left-team-score-mode {
     left: 760px;
     clip-path: polygon(14px 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+#left-team-mode {
+    margin-left: 10px;
+}
+
+#right-team-mode {
+    margin-right: 10px;
 }
 
 #left-team-score, #right-team-score {
@@ -100,7 +113,7 @@ body {
 }
 
 #right-team-score-mode {
-    right: 756px;
+    right: 758px;
     clip-path: polygon(0 0, 86px 0, 100% 100%, 0% 100%);
 }
 
@@ -148,7 +161,7 @@ body {
 #event-name {
     font-family: Boldine;
     font-weight: lighter;
-    color: rgba(168, 168, 168, 0.5);
+    color: rgba(95, 95, 95, 0.85);
     font-size: 75px;
     letter-spacing: 5px;
 }
@@ -165,7 +178,7 @@ body {
 #voicesOf {
     font-family: Boldine;
     font-weight: lighter;
-    color: rgba(168, 168, 168, 0.5);
+    color: rgba(95, 95, 95, 0.85);
     font-size: 76px;
     letter-spacing: 5px;
     position: absolute;
