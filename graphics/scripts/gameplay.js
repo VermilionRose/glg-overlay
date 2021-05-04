@@ -134,11 +134,17 @@ sideSwitch.on('change', value => {
 mapCount.on('change', value => {
     var leftMapTicks = document.getElementById('left-map-ticks').children;
     var rightMapTicks = document.getElementById('right-map-ticks').children;
+
+    var leftMapTicksExtra = document.getElementById('left-map-ticks-extra').children;
+    var rightMapTicksExtra = document.getElementById('right-map-ticks-extra').children;
+
     var mapList = document.getElementById('maps').children;
     
     if (value == 3) {
         leftMapTicks[1].style.display = 'flex';
         rightMapTicks[1].style.display = 'flex';
+        leftMapTicksExtra[1].style.display = 'flex';
+        rightMapTicksExtra[1].style.display = 'flex';
 
         document.getElementById('left-map-ticks').style.justifyContent = 'space-evenly';
         document.getElementById('right-map-ticks').style.justifyContent = 'space-evenly';
@@ -151,6 +157,8 @@ mapCount.on('change', value => {
 
     leftMapTicks[1].style.display = 'none';
     rightMapTicks[1].style.display = 'none';
+    leftMapTicksExtra[1].style.display = 'none';
+    rightMapTicksExtra[1].style.display = 'none';
 
     document.getElementById('left-map-ticks').style.justifyContent = 'flex-start';
     document.getElementById('right-map-ticks').style.justifyContent = 'flex-end';
@@ -166,29 +174,40 @@ hostLogo.on('change', value => {
 
 team1SeriesScore.on('change', value => {
     var leftMapTicks = document.getElementById('left-map-ticks').children;
+    var leftMapTicksExtra = document.getElementById('left-map-ticks-extra').children;
 
     if (value == 0) {
         leftMapTicks[0].style.backgroundColor = 'rgba(0,0,0,.25)';
         leftMapTicks[1].style.backgroundColor = 'rgba(0,0,0,.25)';
+        leftMapTicksExtra[0].style.backgroundColor = 'rgba(0,0,0,.25)';
+        leftMapTicksExtra[1].style.backgroundColor = 'rgba(0,0,0,.25)';
     } else if (value == 1) {
         leftMapTicks[0].style.backgroundColor = 'rgba(255,255,255,1)';
         leftMapTicks[1].style.backgroundColor = 'rgba(0,0,0,.25)';
+        leftMapTicksExtra[0].style.backgroundColor = 'rgba(255,255,255,1)';
+        leftMapTicksExtra[1].style.backgroundColor = 'rgba(0,0,0,.25)';
     } else {
-        leftMapTicks[1].style.backgroundColor = 'rgba(255,255,255,1)';
+        leftMapTicksExtra[1].style.backgroundColor = 'rgba(255,255,255,1)';
     }
 });
 
 team2SeriesScore.on('change', value => {
     var rightMapTicks = document.getElementById('right-map-ticks').children;
+    var rightMapTicksExtra = document.getElementById('right-map-ticks-extra').children;
 
     if (value == 0) {
         rightMapTicks[0].style.backgroundColor = 'rgba(0,0,0,.25)';
         rightMapTicks[1].style.backgroundColor = 'rgba(0,0,0,.25)';
+        rightMapTicksExtra[0].style.backgroundColor = 'rgba(0,0,0,.25)';
+        rightMapTicksExtra[1].style.backgroundColor = 'rgba(0,0,0,.25)';
     } else if (value == 1) {
         rightMapTicks[0].style.backgroundColor = 'rgba(255,255,255,1)';
         rightMapTicks[1].style.backgroundColor = 'rgba(0,0,0,.25)';
+        rightMapTicksExtra[0].style.backgroundColor = 'rgba(255,255,255,1)';
+        rightMapTicksExtra[1].style.backgroundColor = 'rgba(0,0,0,.25)';
     } else {
         rightMapTicks[1].style.backgroundColor = 'rgba(255,255,255,1)';
+        rightMapTicksExtra[1].style.backgroundColor = 'rgba(255,255,255,1)';
     }
 });
 
