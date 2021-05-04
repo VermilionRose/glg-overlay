@@ -1,0 +1,265 @@
+@font-face {
+    font-family: Din Pro;
+    src: url(typefaces/DINProBlack.otf);
+}
+
+body {
+    background-image: url(images/desk.png);
+    font-family: Din Pro;
+    padding: 0;
+    margin: 0;
+    height: 1080px;
+    width: 1920px;
+    overflow-x: hidden;
+}
+
+#header {
+    height: 303px;
+    width: 1920px;
+    position: absolute;
+    top: 0;
+}
+
+h1, h2{
+    font-family: Din Pro;
+    color: white;
+    text-transform: uppercase;
+    position: absolute;
+    margin: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%);
+}
+
+#event-name {
+    opacity: .2;
+    font-size: 175px;
+    width: 80%;
+    text-align: center;
+}
+
+#host-name {
+    font-size: 50px;
+    transform: translate(-50%, -75%);
+}
+
+#glg-step-repeat {
+    position: absolute;
+    top: 302px;
+    height: 394px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    clip-path: polygon(49.75% 0%, 55.75% 0%, 50.25% 100%, 44.25% 100%);
+}
+
+#left-team, #right-team {
+    background-color: white;
+    height: 150px;
+    width: 565px;
+    position: absolute;
+    top: 740px;
+}
+
+#right-team {
+    right: 0;
+}
+
+.team-name-container {
+    width: 90%;
+    height: 25%;
+    text-align: center;
+}
+
+.team-name {
+    text-transform: uppercase;
+    color: white;
+    margin: 0;
+    text-align: center;
+    transition: 1s all ease-in-out;
+}
+
+.color-information {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#left-team-color, #right-team-color {
+    height: 180px;
+    width: 305px;
+    position: absolute;
+    top: 740px;
+    background-color: red;
+    transition: 1s all ease-in-out;
+}
+
+#left-team-color {
+    left: 565px;
+    clip-path: polygon(100% 0, 100% 100%, 7% 100%, 0 83%, 0 0);
+}
+
+#right-team-color {
+    right: 565px;
+    clip-path: polygon(100% 0, 100% 83%, 93% 100%, 0 100%, 0 0);
+}
+
+#left-team-mode, #right-team-mode {
+    font-size: 50px;
+    transition: 1s all ease-in-out;
+}
+
+#left-team-mode {
+    position: absolute;
+    left: 361px;
+}
+
+#right-team-mode {
+    position: absolute;
+    left: 204px;
+}
+
+#left-team-logo {
+    position: absolute;
+    top: 5px;
+    left: 32px;
+    height: 140px;
+    width: 140px;
+    transition: 1s all ease-in-out;
+}
+
+#right-team-logo {
+    position: absolute;
+    top: 5px;
+    right: 32px;
+    height: 140px;
+    width: 140px;
+    transition: 1s all ease-in-out;
+}
+
+#middle-logo {
+    background-color: white;
+    height: 180px;
+    width: 180px;
+    position: absolute;
+    top: 740px;
+    left: 870px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#middle-logo img {
+    height: auto;
+    width: 80%;
+}
+
+.map-ticks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 150px;
+}
+
+.map-tick {
+    background-color: rgba(0,0,0,.25);
+    height: 14px;
+    width: 55px;
+    transition: 1s all ease-in-out;
+}
+
+#advertisements {
+    position: absolute;
+    top: 890px;
+    left: 0; 
+}
+
+#caster-names {
+    position: absolute;
+    top: 580px;
+    left: 16px;
+}
+
+#caster-flex {
+    display: flex;
+    flex-direction: row;
+    width: 98vw;
+    justify-content: space-between;
+}
+
+#caster-names p{
+    font-family: Din Pro;
+    color: white;
+    text-transform: uppercase;
+    font-size: 45px;
+    text-shadow: 2px 2px 0px #aaa;
+}
+
+#maps {
+    z-index: -1;
+    width: 1498px;
+    height: 135px;
+    position: absolute;
+    display: flex;
+    top: 890px;
+    left: 422px;
+}
+
+#map-1 {
+    background-image: url(maps/default.png);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-blend-mode: luminosity;
+    background-color: initial;
+    display: flex;
+}
+
+#map-2 {
+    background-image: url(maps/default.png);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-blend-mode: luminosity;
+    background-color: initial;
+    display: flex;
+}
+
+#map-3 {
+    background-image: url(maps/default.png);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-blend-mode: luminosity;
+    background-color: initial;
+    display: flex;
+}
+
+.map-container {
+    display: flex;
+    justify-content: center;
+    transition: 1s all ease-in-out;
+}
+
+.map-information {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 90%;
+    height: 120px;
+}
+
+.map-information > p {
+    color: white;
+    text-transform: uppercase;
+    font-size: 40px;
+    margin: 0;
+    transition: 1s all ease-in-out;
+    text-shadow: 2px 2px 0px #aaa;
+}

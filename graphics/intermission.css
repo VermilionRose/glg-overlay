@@ -1,0 +1,108 @@
+@font-face {
+    font-family: Din Pro;
+    src: url(typefaces/DINProBlack.otf);
+}
+
+@font-face {
+    font-family: Boldine;
+    src: url(typefaces/Boldine.ttf);
+}
+
+@font-face {
+    font-family: Din Pro Light;
+    src: url(typefaces/DINProLight300.otf);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#Sova {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    left: -600px;
+}
+
+#grey-cover {
+    position: absolute;
+    left: -600px;
+}
+
+#gradient {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    right: -750px;
+}
+
+#event-wrapper {
+    position: absolute;
+    right: -1920px;
+    bottom: 150px;
+    height: 1080px;
+    width: 1920px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#tip-wrapper {
+    position: absolute;
+    right: 50px;
+    bottom: -1080px;
+    height: 1080px;
+    width: 1920px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#event-1, #tip-1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#event-2, #tip-2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    color: white;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-family: Din Pro;
+    font-size: 45px;
+    font-weight: 300;
+    margin-top: 40px;
+}
+
+h2 {
+    font-family: Din Pro Light;
+    font-size: 27px;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+
+h3 {
+    font-family: Din Pro Light;
+    font-size: 45px;
+    letter-spacing: 10px;
+    margin-right: -10px;
+    margin-bottom: -10px;
+}

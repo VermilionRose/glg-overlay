@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Casters</title>
+		<meta name="description" content="">
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<div>
+			<form id="update-caster-information">
+                <div id="caster-flex">
+                    <div>
+                        <label for="caster=left">Caster Left</label>
+                        <input id="caster-left">
+                    </div>
+
+                    <div>
+                        <label for="caster-right">Caster Right</label>
+                        <input id="caster-right">
+                    </div>
+                </div>
+				
+				<br>
+
+				<button type="submit">Update</button>
+			</form>
+		</div>
+
+		<script>
+			const casterLeft = nodecg.Replicant('casterLeft');
+	        const casterRight = nodecg.Replicant('casterRight');
+
+			const textForm = document.getElementById('update-caster-information');
+			const casterLeftInput = document.getElementById('caster-left');
+            const casterRightInput = document.getElementById('caster-right');
+
+			casterLeft.on('change', value => {
+				document.getElementById('caster-left').value = value;
+			});
+
+			casterRight.on('change', value => {
+				document.getElementById('caster-right').value = value;
+			});
+
+			textForm.addEventListener('submit', e => {
+				e.preventDefault();
+				casterLeft.value = casterLeftInput.value;
+                casterRight.value = casterRightInput.value;
+			});
+		</script>
+	</body>
+</html>

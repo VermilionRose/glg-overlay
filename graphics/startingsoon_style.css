@@ -1,0 +1,46 @@
+@font-face {
+    font-family: Din Pro;
+    src: url(typefaces/DINProBlack.otf);
+}
+
+@font-face {
+    font-family: Boldine;
+    src: url(typefaces/Boldine.ttf);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+}
+
+h1, h2 {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+
+h1 {
+    font-family: Boldine;
+    font-size: 300px;
+    font-weight: lighter;
+    color: white;
+    opacity: .3;
+    right: 400px;
+    top: 700px;
+}
+
+h2 {
+    font-family: Din Pro;
+    color: white;
+    font-size: 65px;
+    font-weight: lighter;
+    letter-spacing: 10px;
+    top: 925px;
+    right: 300px;
+}

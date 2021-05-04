@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Event</title>
+		<meta name="description" content="">
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<div>
+			<form id="update-event-information">
+				<label for="event-name">Event Name</label>
+				<input id="event-name">
+
+				<br>
+
+				<label for="host-name">Host Name</label>
+				<input id="host-name">
+				
+				<br>
+
+				<label for="host-logo">Host Logo</label>
+				<input id="host-logo" value='glg'>
+
+				<br>
+
+				<label for="startTime">Start Time</label>
+				<input id="startTime" type="time" name="startTime">
+
+				<br>
+
+				<button type="submit">Update</button>
+			</form>
+		</div>
+
+		<script>
+			const assetPath = '../../../assets/glg-overlay/host/';
+			
+			const eventName = nodecg.Replicant('eventName');
+			const hostName = nodecg.Replicant('hostName');
+			const hostLogo = nodecg.Replicant('hostLogo');
+
+			const startTime = nodecg.Replicant('startTime');
+
+			const textForm = document.getElementById('update-event-information');
+			const eventBox = document.getElementById('event-name');
+			const hostBox = document.getElementById('host-name');
+			const logoBox = document.getElementById('host-logo');
+			const startTimeInput = document.getElementById('startTime');
+
+			eventName.on('change', value => {
+				document.getElementById('event-name').value = value;
+			});
+
+			hostName.on('change', value => {
+				document.getElementById('host-name').value = value;
+			});
+
+			startTime.on('change', value => {
+				document.getElementById('startTime').value = value;
+			});
+
+			textForm.addEventListener('submit', e => {
+				e.preventDefault();
+				eventName.value = eventBox.value;
+				hostName.value = hostBox.value;
+				hostLogo.value = assetPath + logoBox.value + '.png';
+				startTime.value = startTimeInput.value;
+			});
+		</script>
+	</body>
+</html>

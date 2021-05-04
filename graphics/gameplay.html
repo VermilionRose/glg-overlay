@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gameplay</title>
+    <link rel="stylesheet" href="gameplay.css">
+</head>
+<body>
+    <div id="header">
+        <div id="left-team-banner">
+            <div id="left-banner-info">
+                <div class="team-name" id="left-team-name"></div>
+                <div class="map-ticks" id="left-map-ticks">
+                    <div class="map-tick"></div>
+                    <div class="map-tick"></div>
+                </div>
+            </div>
+            <img class="team-logo" id="left-team-logo" src="" alt="left team logo">
+        </div>
+        <div class="score-mode" id="left-team-score-mode">
+            <div id="left-team-mode"></div>
+            <div id="left-team-score"></div>
+        </div>
+
+        <div class="score-mode" id="right-team-score-mode">
+            <div id="right-team-score"></div>
+            <div id="right-team-mode"></div>
+        </div>
+        <div id="right-team-banner">
+            <img class="team-logo" id="right-team-logo" src="" alt="left team logo">
+            <div id="right-banner-info">
+                <div class="map-ticks" id="right-map-ticks">
+                    <div class="map-tick"></div>
+                    <div class="map-tick"></div>
+                </div>
+                <div class="team-name" id="right-team-name"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="left-bug">
+        <div id="event-name"></div>
+        <div id="host-name"></div>
+    </div>
+
+    <div id="voicesOf">VOICES&nbsp;OF</div>
+    <div id="caster-names">
+        <p id="caster-left"></p>
+        <pre><p> </p></pre>
+        <p id="caster-right"></p>
+    </div>
+
+    <!--[HUD Overlay Start]-->
+    <div id="hud-extra-header">
+        <div id="left-team-extra">
+            <img class="logo" id="left-team-logo-extra" src="" alt="left team logo" onerror="if (this.src != '../../../assets/glg-overlay/logos/default.png') this.src = '../../../assets/glg-overlay/logos/default.png';">
+            <h2 id="left-team-mode-extra">DEFENSE</h2>
+        </div>
+        <div id="left-team-color-extra">
+            <div class="color-information-extra">
+                <div class='team-name-container-extra'>
+                    <h3 class="team-name-extra" id="left-team-name-extra"></h3>
+                </div>
+                <div class="map-ticks-extra" id="left-map-ticks">
+                    <div class="map-tick-extra"></div>
+                    <div class="map-tick-extra"></div>
+                </div>
+            </div>
+        </div>
+        <div id="left-team-score-extra"></div>
+        <div id="middle-logo">
+            <img class="hostLogo" id="host-logo" src="" alt="host logo" onerror="if (this.src != '../../../assets/glg-overlay/host/glg.png') this.src = '../../../assets/glg-overlay/host/glg.png';">
+        </div>
+        <div id="right-team-score-extra"></div>
+        <div id="right-team-color-extra">
+            <div class="color-information-extra">
+                <div class='team-name-container-extra'>
+                    <h3 class="team-name-extra" id="right-team-name-extra"></h3>
+                </div>
+                <div class="map-ticks-extra" id="right-map-ticks">
+                    <div class="map-tick-extra"></div>
+                    <div class="map-tick-extra"></div>
+                </div>
+            </div>
+        </div>
+        <div id="right-team-extra">
+            <h2 id="right-team-mode-extra">ATTACK</h2>
+            <img class="logo" id="right-team-logo-extra" src="" alt="right team logo">
+        </div>
+    </div>
+
+    <div id="maps">
+        <div id="map-1" class="map-container">
+            <div class="map-information">
+                <p id="map-1-name"></p>
+                <p id="map-1-score"></p>
+            </div>
+        </div>
+        <div id="map-2" class="map-container">
+            <div class="map-information">
+                <p id="map-2-name"></p>
+                <p id="map-2-score"></p>
+            </div>
+        </div>
+        <div id="map-3" class="map-container">
+            <div class="map-information">
+                <p id="map-3-name"></p>
+                <p id="map-3-score"></p>
+            </div>
+        </div>
+    </div>
+
+    <!--[HUD Overlay End]-->
+    
+    <script src="scripts/gameplay.js" async defer></script>
+</body>
+</html>

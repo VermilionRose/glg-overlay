@@ -1,0 +1,137 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    background-color: #03AC13;
+    border: none;
+    border-radius: 0;
+    color: white;
+    text-transform: uppercase;
+    width: 100%;
+    height: auto;
+    font-size: 150%;
+}
+
+.radio {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 5px rgba(0,0,0, 0.25);
+}
+
+.map > form {
+    width: 50%;
+}
+
+.map-count-input {
+    display: none;
+}
+
+.map-count-label {
+    padding: 8px 14px;
+    font-size: 14px;
+    color: #fff;
+    background: purple;
+    cursor: pointer;
+    transition: background .5s;
+}
+
+.map-count-label:not(:last-of-type) {
+    border-right: 1px solid darkorchid;
+}
+
+.map-count-input:checked + .map-count-label {
+    background: darkorchid;
+}
+
+#map-team-scores {
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+
+.score-board {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.board-team-names {
+    text-transform: uppercase;
+    background-color: rgb(75, 80, 104);
+}
+
+.board-team-names p{
+    padding-left: 1em;
+    padding-right: 1em;
+    margin: 5px 0 5px 0;
+}
+
+.score-board #team-2-name, .score-board #team-2-name-2 {
+    text-align: right;
+}
+
+.board-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+#board-buttons-2 {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.board-buttons button{
+    background-color: gray;
+    width: auto;
+}
+
+.reset-button {
+    font-size: 75%;
+    margin: 0;
+}
+
+.reset-button p{
+    writing-mode: vertical-lr;
+    margin: 0;
+}
+
+#team-1-reset, #team-2-reset, #team-1-reset-series, #team-2-reset-series {
+    background-color: red;
+}
+
+.score-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.team-score-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    font-size: 200%;
+    background-color: rgb(65, 65, 65);
+}
+
+.score-input button {
+    width: 100px;
+}
+
+.score-input button:nth-child(2) {
+    background-color: dimgray;
+}
+
+#caster-flex {
+    display: flex;
+}
+
+.select {
+    width: 100%;
+}

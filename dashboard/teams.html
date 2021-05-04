@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Teams</title>
+		<meta name="description" content="">
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<div>
+			<div id="teams">
+				<form id="team-1-information">
+					<label for="team-1-name" id="team-1-name-label">Team 1 Name</label>
+					<input id="team-1-name">
+
+					<label for="team-1-acronym" id="team-1-acronym-label">Team 1 Acronym</label>
+					<input id="team-1-acronym">
+					
+					<label for="team-1-color">Team 1 Color</label>
+					<select id="team-1-color">
+						<option value="#23BC89" selected>Green</option>
+						<option value="#d65555">Red</option>
+						<option value="#9d35f6">Purple</option>
+						<option value="#5b64e2">Blue</option>
+						<option value="#ff8800">Orange</option>
+						<option value="#ffc233">Yellow</option>
+						<option value="#717171">Gray</option>
+						<option value="#fc88d2">Pink</option>
+					</select>
+
+					<label for="team-1-logo">Team 1 Logo</label>
+					<input id="team-1-logo" value='default'>
+
+					<br>
+				
+					<label for="team-2-name" id="team-2-name-label">Team 2 Name</label>
+					<input id="team-2-name">
+
+					<label for="team-2-acronym" id="team-2-acronym-label">Team 2 Acronym</label>
+					<input id="team-2-acronym">
+
+					<label for="team-2-color">Team 2 Color</label>
+					<select id="team-2-color">
+						<option value="#23BC89">Green</option>
+						<option value="#d65555" selected>Red</option>
+						<option value="#9d35f6">Purple</option>
+						<option value="#5b64e2">Blue</option>
+						<option value="#ff8800">Orange</option>
+						<option value="#ffc233">Yellow</option>
+						<option value="#717171">Gray</option>
+						<option value="#fc88d2">Pink</option>
+					</select>
+
+					<label for="team-2-logo">Team 2 Logo</label>
+					<input id="team-2-logo" value='default'>
+
+					<br>
+
+					<button type="submit">Update</button>
+				</form>
+			</div>
+		</div>
+
+		<script>
+			/* Team Information */
+			const assetPath = '../../../assets/glg-overlay/logos/';
+
+			const team1Name = nodecg.Replicant('team1Name');
+			const team2Name = nodecg.Replicant('team2Name');
+			const team1Acronym = nodecg.Replicant('team1Acronym');
+			const team2Acronym = nodecg.Replicant('team2Acronym');
+
+			const team1Color = nodecg.Replicant('team1Color');
+			const team2Color = nodecg.Replicant('team2Color'); 
+
+			const textForm1 = document.getElementById('team-1-information');
+			const textForm2 = document.getElementById('team-2-information');
+
+			const team1Logo = nodecg.Replicant('team1Logo');
+			const team2Logo = nodecg.Replicant('team2Logo');
+
+			const team1Box = document.getElementById('team-1-name');
+			const team1AcronymBox = document.getElementById('team-1-acronym');
+			const team1ColorBox = document.getElementById('team-1-color');
+			const team1LogoBox = document.getElementById('team-1-logo');
+
+			const team2Box = document.getElementById('team-2-name');
+			const team2AcronymBox = document.getElementById('team-2-acronym');
+			const team2ColorBox = document.getElementById('team-2-color');
+			const team2LogoBox = document.getElementById('team-2-logo');
+
+			team1Name.on('change', value => {
+				document.getElementById('team-1-name').value = value;
+			});
+
+			team2Name.on('change', value => {
+				document.getElementById('team-2-name').value = value;
+			});
+
+			team1Acronym.on('change', value => {
+				document.getElementById('team-1-acronym').value = value;
+			});
+
+			team2Acronym.on('change', value => {
+				document.getElementById('team-2-acronym').value = value;
+			});
+			
+			textForm1.addEventListener('submit', e => {
+				e.preventDefault();
+				team1Name.value = team1Box.value;
+				team1Acronym.value = team1AcronymBox.value;
+				team1Color.value = team1ColorBox.value;
+				team1Logo.value = assetPath + team1LogoBox.value + '.png';
+			
+				team2Name.value = team2Box.value;
+				team2Acronym.value = team2AcronymBox.value;
+				team2Color.value = team2ColorBox.value;
+				team2Logo.value = assetPath + team2LogoBox.value + '.png';
+			})
+
+		</script>
+	</body>
+</html>

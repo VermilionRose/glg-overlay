@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Desk</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="desk_style.css">
+	</head>
+	<body>
+		<div id="header">
+			<h1 id=event-name>Pit of Valor</h1>
+			<h2 id=host-name>Great Lakes Gaming</h2>
+		</div>
+
+		<div id="glg-step-repeat">
+			<img id="glg-step-repeat-img" src="images/glg-step-repeat.png" alt="">
+		</div>
+
+		<div id="caster-names">
+			<div id="caster-flex">
+				<p id="caster-left"></p>
+				<p id="caster-right"></p>
+			</div>
+		</div>
+
+		<div id="lower-third">
+			<div id="left-team">
+				<img class="logo" id="left-team-logo" src="" alt="left team logo" onerror="if (this.src != '../../../assets/glg-overlay/logos/default.png') this.src = '../../../assets/glg-overlay/logos/default.png';">
+				<h2 id="left-team-mode">DEFENSE</h2>
+			</div>
+			<div id="left-team-color">
+				<div class="color-information">
+					<div class='team-name-container'>
+						<h3 class="team-name" id="left-team-name"></h3>
+					</div>
+					<div class="map-ticks" id="left-map-ticks">
+						<div class="map-tick"></div>
+						<div class="map-tick"></div>
+					</div>
+				</div>
+			</div>
+			<div id="middle-logo">
+				<img class="hostLogo" id="host-logo" src="" alt="host logo" onerror="if (this.src != '../../../assets/glg-overlay/host/glg.png') this.src = '../../../assets/glg-overlay/host/glg.png';">
+			</div>
+			<div id="right-team">
+				<h2 id="right-team-mode">ATTACK</h2>
+				<img class="logo" id="right-team-logo" src="" alt="right team logo">
+			</div>
+			<div id="right-team-color">
+				<div class="color-information">
+					<div class='team-name-container'>
+						<h3 class="team-name" id="right-team-name"></h3>
+					</div>
+					<div class="map-ticks" id="right-map-ticks">
+						<div class="map-tick"></div>
+						<div class="map-tick"></div>
+					</div>
+				</div>
+			</div>
+			<div id="advertisements">
+				<div class="images">
+					<img class="slideshow" src="deskads/GLG_Ad_Bracket.png">
+					<img class="slideshow" src="deskads/GLG_Ad_Casters.png">
+					<img class="slideshow" src="deskads/GLG_Ad_Discord.png">
+					<img class="slideshow" src="deskads/GLG_Ad_Giveaway.png">
+					<img class="slideshow" src="deskads/GLG_Ad_Shop.png">
+					<img class="slideshow" src="deskads/GLG_Ad_TikTok.png">
+					<img class="slideshow" src="deskads/GLG_Ad_Twitter.png">
+					<img class="slideshow" src="deskads/GLG_Ad_YouTube.png">
+				</div>
+			</div>
+		</div>
+		<div id="maps">
+			<div id="map-1" class="map-container">
+				<div class="map-information">
+					<p id="map-1-name"></p>
+					<p id="map-1-score"></p>
+				</div>
+			</div>
+			<div id="map-2" class="map-container">
+				<div class="map-information">
+					<p id="map-2-name"></p>
+					<p id="map-2-score"></p>
+				</div>
+			</div>
+			<div id="map-3" class="map-container">
+				<div class="map-information">
+					<p id="map-3-name"></p>
+					<p id="map-3-score"></p>
+				</div>
+			</div>
+		</div>
+
+		<script src="scripts/index.js" async defer></script>
+		<script src="scripts/fitty.min.js"></script>
+		<script src="scripts/anime.min.js"></script>
+		<script>
+			//automatic team name resizing
+			fitty('#left-team-name', {
+				maxSize: 50
+			});
+			fitty('#right-team-name', {
+				maxSize: 50
+			});
+
+			//slideshow control
+			var indexValue = 0;
+			function slideShow(){
+				setTimeout(slideShow, 20000);
+				var x;
+				const img = document.querySelectorAll("img.slideshow");
+				for(x = 0; x < img.length; x++){
+					img[x].style.display = "none";
+				}
+				indexValue++;
+				if (indexValue > img.length) {
+					indexValue = 1
+				}
+				img[indexValue -1].style.display = "block";
+				}
+			slideShow();
+			
+			//anime.js library implementation for the step and repeat ribbon
+			anime({
+				targets: '#glg-step-repeat-img',
+				translateX: 800,
+				duration: 32000,
+				direction: 'alternate',
+				easing: 'easeInOutSine',
+				loop: true
+			});
+		</script>
+	</body>
+</html>

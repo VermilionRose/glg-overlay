@@ -1,0 +1,109 @@
+{
+  "name": "glg-overlay",
+  "version": "0.0.0",
+  "description": "Recreation of the Unity build in NodeCG",
+  "homepage": "",
+  "author": {
+    "name": "Jacob Pochron",
+    "email": "pochron.jacob@gmail.com",
+    "url": "https://www.youtube.com/watch?v=-zCijR7MJIU.com"
+  },
+  "files": [
+    "dashboard",
+    "graphics",
+    "extension"
+  ],
+  "keywords": [
+    "",
+    "nodecg-bundle"
+  ],
+  "nodecg": {
+    "compatibleRange": "^1.1.1",
+    "dashboardPanels": [
+      {
+        "name": "event",
+        "title": "Event Information",
+        "file": "event.html",
+		    "width": 3,
+        "fullbleed": false,
+        "headerColor": "#525F78"
+      },
+	    {
+        "name": "teams",
+        "title": "Teams",
+        "file": "teams.html",
+		    "width": 3,
+        "fullbleed": false,
+        "headerColor": "#525F78"
+      },
+      {
+        "name": "maps",
+        "title": "Maps",
+        "file": "maps.html",
+		    "width": 3,
+        "fullbleed": false,
+        "headerColor": "#525F78"
+      },
+      {
+        "name": "casters",
+        "title": "Casters",
+        "file": "casters.html",
+		    "width": 3,
+        "fullbleed": false,
+        "headerColor": "#525F78"
+      },
+      {
+        "name": "mapSelection",
+        "title": "Map Selection",
+        "file": "mapSelection.html",
+		    "width": 3,
+        "fullbleed": false,
+        "headerColor": "#525F78"
+      },
+      {
+        "name": "upcomingEvents",
+        "title": "Upcoming Events and Tips",
+        "file": "upcomingEvents.html",
+		    "width": 3,
+        "fullbleed": false,
+        "headerColor": "#525F78"
+      }
+    ],
+    "graphics": [
+      {
+        "file": "desk.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "startingsoon.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "gameplay.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "intermission.html",
+        "width": 1920,
+        "height": 1080
+      }
+    ],
+    "assetCategories": [
+      {
+        "name": "logos",
+        "title": "Logos",
+        "allowedTypes": ["png"]
+      },
+      {
+        "name": "host",
+        "title": "Hosts",
+        "allowedTypes": ["png"]
+      }
+    ]
+  },
+  "repository": "https://github.com/nodecg/nodecg.git",
+  "private": true
+}

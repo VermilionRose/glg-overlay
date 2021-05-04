@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Events</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div>
+        <form id="update-event-tip-information">
+            <label for="event-1-title">Event 1 Title</label>
+            <input id="event-1-title">
+
+            <br>
+
+            <label for="event-1-info">Event 1 Info</label>
+            <input id="event-1-info">
+            
+            <br>
+
+            <label for="event-2-title">Event 2 Title</label>
+            <input id="event-2-title">
+
+            <br>
+
+            <label for="event-2-info">Event 2 Info</label>
+            <input id="event-2-info">
+            
+            <br>
+
+            <label for="tip-1-title">Tip 1 Title</label>
+            <input id="tip-1-title">
+
+            <br>
+
+            <label for="tip-1-info">Tip 1 Info</label>
+            <input id="tip-1-info">
+            
+            <br>
+
+            <label for="tip-2-title">Tip 2 Title</label>
+            <input id="tip-2-title">
+
+            <br>
+
+            <label for="tip-2-info">Tip 2 Info</label>
+            <input id="tip-2-info">
+            
+            <br>
+
+            <button type="submit">Update</button>
+        </form>
+    </div>
+
+    <script>
+        const event1Title = nodecg.Replicant('event1Title');
+	    const event1Info = nodecg.Replicant('event1Info');
+	    const event2Title = nodecg.Replicant('event2Title');
+	    const event2Info = nodecg.Replicant('event2Info');
+
+        const tip1Title = nodecg.Replicant('tip1Title');
+	    const tip1Info = nodecg.Replicant('tip1Info');
+	    const tip2Title = nodecg.Replicant('tip2Title');
+	    const tip2Info = nodecg.Replicant('tip2Info');
+
+        const textForm = document.getElementById('update-event-tip-information');
+        
+        event1Title.on('change', value => {
+				document.getElementById('event-1-title').value = value;
+        });
+
+        event1Info.on('change', value => {
+				document.getElementById('event-1-info').value = value;
+        });
+
+        event2Title.on('change', value => {
+				document.getElementById('event-2-title').value = value;
+        });
+
+        event2Info.on('change', value => {
+				document.getElementById('event-2-info').value = value;
+        });
+
+        tip1Title.on('change', value => {
+				document.getElementById('tip-1-title').value = value;
+        });
+
+        tip1Info.on('change', value => {
+				document.getElementById('tip-1-info').value = value;
+        });
+
+        tip2Title.on('change', value => {
+				document.getElementById('tip-2-title').value = value;
+        });
+
+        tip2Info.on('change', value => {
+				document.getElementById('tip-2-info').value = value;
+        });
+
+        const event1TitleInput = document.getElementById('event-1-title');
+        const event1InfoInput = document.getElementById('event-1-info');
+        const event2TitleInput = document.getElementById('event-2-title');
+        const event2InfoInput = document.getElementById('event-2-info');
+
+        const tip1TitleInput = document.getElementById('tip-1-title');
+        const tip1InfoInput = document.getElementById('tip-1-info');
+        const tip2TitleInput = document.getElementById('tip-2-title');
+        const tip2InfoInput = document.getElementById('tip-2-info');
+
+        textForm.addEventListener('submit', e => {
+            e.preventDefault();
+
+            event1Title.value = event1TitleInput.value;
+            event1Info.value = event1InfoInput.value;
+            event2Title.value = event2TitleInput.value;
+            event2Info.value = event2InfoInput.value;
+
+            tip1Title.value = tip1TitleInput.value;
+            tip1Info.value = tip1InfoInput.value;
+            tip2Title.value = tip2TitleInput.value;
+            tip2Info.value = tip2InfoInput.value;
+        });
+    </script>
+</body>
+</html>

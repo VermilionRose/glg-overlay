@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Maps</title>
+		<meta name="description" content="">
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+        <h3>Best of Type</h3>
+        <form id="update-map-count">
+            <div class="radio">
+                <input type="radio" class="map-count-input" id="map-count-1" name="map-count" value="1" checked>
+                <label class="map-count-label" for="map-count-1">Bo1</label>
+
+                <input type="radio" class="map-count-input" id="map-count-3" name="map-count" value="3">
+                <label class="map-count-label" for="map-count-3">Bo3</label>
+
+                <button type="submit">Update</button>
+            </div>
+        </form>
+
+        <br>
+
+        <h3>Swap Sides</h3>
+        <form id="switch-sides">
+            <div class="radio">
+                <input type="radio" class="map-count-input" id="side-switch-f" name="side-switch" value="0" checked>
+                <label class="map-count-label" for="side-switch-f">False</label>
+
+                <input type="radio" class="map-count-input" id="side-switch-t" name="side-switch" value="1">
+                <label class="map-count-label" for="side-switch-t">True</label>
+
+                <button type="submit">Update</button>
+            </div>
+        </form>
+
+        <h3>Map Score</h3>
+        <div id="map-team-scores">
+            <div class="score-board" id="team-1-score">
+                <div class="board-team-names">
+                    <p id="team-1-name">Team 1</p>
+                </div>
+                <div class="board-display">
+                    <div class="board-buttons">
+                        <button class="reset-button" id="team-1-reset" onclick="team1ScoreReset()"><p>Reset</p></button>
+                        <div class="score-input">
+                            <button onclick="team1ScoreUp()">+</button>
+                            <button onclick="team1ScoreDown()">-</button>
+                        </div>
+                        <div class="team-score-display" id="team-1-score-display"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="score-board" id="team-2-score">
+                <div class="board-team-names">
+                    <p id="team-2-name">Team 2</p>
+                </div>
+                <div class="board-display">
+                    <div class="board-buttons" id="board-buttons-2">
+                        <div class="team-score-display" id="team-2-score-display"></div>
+                        <div class="score-input">
+                            <button onclick="team2ScoreUp()">+</button>
+                            <button onclick="team2ScoreDown()">-</button>
+                        </div>
+				        <button class="reset-button" id="team-2-reset" onclick="team2ScoreReset()"><p>Reset</p></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Series Score</h3>
+        <div id="map-team-scores">
+            <div class="score-board" id="team-1-series-score">
+                <div class="board-team-names">
+                    <p id="team-1-name-2">Team 1</p>
+                </div>
+                <div class="board-display">
+                    <div class="board-buttons">
+                        <button class="reset-button" id="team-1-reset-series" onclick="team1SeriesReset()"><p>Reset</p></button>
+                        <div class="score-input">
+                            <button onclick="team1SeriesUp()">+</button>
+                            <button onclick="team1SeriesDown()">-</button>
+                        </div>
+                        <div class="team-score-display" id="team-1-series-display"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="score-board" id="team-2-series-score">
+                <div class="board-team-names">
+                    <p id="team-2-name-2">Team 2</p>
+                </div>
+                <div class="board-display">
+                    <div class="board-buttons" id="board-buttons-2-series">
+                        <div class="team-score-display" id="team-2-series-display"></div>
+                        <div class="score-input">
+                            <button onclick="team2SeriesUp()">+</button>
+                            <button onclick="team2SeriesDown()">-</button>
+                        </div>
+				        <button class="reset-button" id="team-2-reset-series" onclick="team2SeriesReset()"><p>Reset</p></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Gameplay Overlay</h3>
+        <button style="background-color: purple;" class="large-obvious" onclick="HUDExtraControl()">HUD EXTRA</button>
+
+		<script>
+            const mapCount = nodecg.Replicant('mapCount');
+
+            const team1Name = nodecg.Replicant('team1Name');
+			const team2Name = nodecg.Replicant('team2Name');
+
+            const team1MapScore = nodecg.Replicant('team1MapScore');
+	        const team2MapScore = nodecg.Replicant('team2MapScore');
+
+	        const team1SeriesScore = nodecg.Replicant('team1SeriesScore');
+	        const team2SeriesScore = nodecg.Replicant('team2SeriesScore');
+
+            const sideSwitch = nodecg.Replicant('sideSwitch');
+
+            const HUDExtraBoolean = nodecg.Replicant('ExtraBoolean');
+
+			const textForm = document.getElementById('update-map-count');
+            const textForm2 = document.getElementById('switch-sides');
+
+			textForm.addEventListener('submit', e => {
+				e.preventDefault();
+                var radioInfo = document.getElementById("update-map-count");
+                var selectedMapCount = radioInfo.elements["map-count"].value;
+				mapCount.value = selectedMapCount;
+                console.log(selectedMapCount);
+			})
+
+            textForm2.addEventListener('submit', e => {
+				e.preventDefault();
+                var radioInfo = document.getElementById("switch-sides");
+                var selectedMapCount = radioInfo.elements["side-switch"].value;
+				sideSwitch.value = selectedMapCount;
+                console.log(selectedMapCount);
+			})
+
+            team1Name.on('change', value => {
+                document.getElementById('team-1-name').innerHTML = value;
+                document.getElementById('team-1-name-2').innerHTML = value;
+            });
+
+            team2Name.on('change', value => {
+                document.getElementById('team-2-name').innerHTML = value;
+                document.getElementById('team-2-name-2').innerHTML = value;
+            });
+
+            team1MapScore.on('change', value => {
+                document.getElementById('team-1-score-display').innerHTML = value;
+            });
+
+            team2MapScore.on('change', value => {
+                document.getElementById('team-2-score-display').innerHTML = value;
+            });
+
+            team1SeriesScore.on('change', value => {
+                document.getElementById('team-1-series-display').innerHTML = value;
+            });
+
+            team2SeriesScore.on('change', value => {
+                document.getElementById('team-2-series-display').innerHTML = value;
+            });
+
+            function team1ScoreUp(){
+                team1MapScore.value++;
+            }
+
+            function team1ScoreDown(){
+                team1MapScore.value--;
+            }
+
+            function team2ScoreUp(){
+                team2MapScore.value++;
+            }
+
+            function team2ScoreDown(){
+                team2MapScore.value--;
+            }
+
+            function team1ScoreReset(){
+                team1MapScore.value = 0;
+            }
+
+            function team2ScoreReset(){
+                team2MapScore.value = 0;
+            }
+
+            function team1SeriesUp(){
+                team1SeriesScore.value++;
+            }
+
+            function team1SeriesDown(){
+                team1SeriesScore.value--;
+            }
+
+            function team2SeriesUp(){
+                team2SeriesScore.value++;
+            }
+
+            function team2SeriesDown(){
+                team2SeriesScore.value--;
+            }
+
+            function team1SeriesReset(){
+                team1SeriesScore.value = 0;
+            }
+
+            function team2SeriesReset(){
+                team2SeriesScore.value = 0;
+            }
+
+            function HUDExtraControl() {
+                console.log("Pre Guard Clause Value: " + HUDExtraBoolean.value);
+                if (HUDExtraBoolean.value == 'false') {
+                    HUDExtraBoolean.value = 'true';
+                    return;
+                }
+                HUDExtraBoolean.value = 'false';
+            }
+		</script>
+	</body>
+</html>

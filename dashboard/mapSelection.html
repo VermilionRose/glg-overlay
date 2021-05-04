@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Teams</title>
+		<meta name="description" content="">
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<div>
+			<div id="map">
+				<form id="map-information">
+					<div style="display: flex; justify-content: space-between;">
+						<div style="width: 50%; flex-direction: column;">
+							<label for="map-1">Map 1</label>
+							<select id="map-1">
+								<option value="default" selected>None</option>
+								<option value="ascent">Ascent</option>
+								<option value="bind">Bind</option>
+								<option value="breeze">Breeze</option>
+								<option value="haven">Haven</option>
+								<option value="icebox">Icebox</option>
+								<option value="split">Split</option>
+							</select>
+							<br>
+							<label for="map-1-score">Map 1 Score</label>
+  							<input type="text" id="map-1-score" name="map-1-score">
+						</div>
+						<div class="radio">
+							<input type="radio" id="team-1-map-1-win" class="map-count-input" for="map-1-winner-1" value="Team 1" name="map-win-1">
+							<label id="team-1-map-1-win-2" class="map-count-label" for="team-1-map-1-win">Team 1</label>
+
+							<input type="radio" id="team-2-map-1-win" class="map-count-input" for="map-1-winner-2" value="Team 2" name="map-win-1">
+							<label id="team-2-map-1-win-2" class="map-count-label" for="team-2-map-1-win">Team 2</label>
+
+							<input type="radio" id="map-1-winner-N" class="map-count-input" for="map-1-winner-N" value="None" name="map-win-1" checked>
+							<label for="map-1-winner-N" class="map-count-label">None</label>
+						</div>
+					</div>
+                    <br>
+                    <div style="display: flex; justify-content: space-between;">
+						<div style="width: 50%; flex-direction: column;">
+							<label for="map-2">Map 2</label>
+							<select id="map-2">
+								<option value="default" selected>None</option>
+								<option value="ascent">Ascent</option>
+								<option value="bind">Bind</option>
+								<option value="breeze">Breeze</option>
+								<option value="haven">Haven</option>
+								<option value="icebox">Icebox</option>
+								<option value="split">Split</option>
+							</select>
+							<br>
+							<label for="map-2-score">Map 2 Score</label>
+  							<input type="text" id="map-2-score" name="map-2-score">
+						</div>
+						<div class="radio">
+							<input type="radio" id="team-1-map-2-win" class="map-count-input" for="map-2-winner-1" value="Team 1" name="map-win-2">
+							<label id="team-1-map-2-win-2" class="map-count-label" for="team-1-map-2-win">Team 1</label>
+
+							<input type="radio" id="team-2-map-2-win" class="map-count-input" for="map-2-winner-2" value="Team 2" name="map-win-2">
+							<label id="team-2-map-2-win-2" class="map-count-label" for="team-2-map-2-win">Team 2</label>
+
+							<input type="radio" id="map-2-winner-N" class="map-count-input" for="map-2-winner-N" value="None" name="map-win-2" checked>
+							<label for="map-2-winner-N" class="map-count-label">None</label>
+						</div>
+					</div>
+                    <br>
+                    <div style="display: flex; justify-content: space-between;">
+						<div style="width: 50%; flex-direction: column;">
+							<label for="map-3">Map 3</label>
+							<select id="map-3">
+								<option value="default" selected>None</option>
+								<option value="ascent">Ascent</option>
+								<option value="bind">Bind</option>
+								<option value="breeze">Breeze</option>
+								<option value="haven">Haven</option>
+								<option value="icebox">Icebox</option>
+								<option value="split">Split</option>
+							</select>
+							<br>
+							<label for="map-3-score">Map 3 Score</label>
+  							<input type="text" id="map-3-score" name="map-3-score">
+						</div>
+						<div class="radio">
+							<input type="radio" id="team-1-map-3-win" class="map-count-input" for="map-3-winner-1" value="Team 1" name="map-win-3">
+							<label id="team-1-map-3-win-2" class="map-count-label" for="team-1-map-3-win">Team 1</label>
+
+							<input type="radio" id="team-2-map-3-win" class="map-count-input" for="map-3-winner-2" value="Team 2" name="map-win-3">
+							<label id="team-2-map-3-win-2" class="map-count-label" for="team-2-map-3-win">Team 2</label>
+
+							<input type="radio" id="map-3-winner-N" class="map-count-input" for="map-3-winner-N" value="None" name="map-win-3" checked>
+							<label for="map-3-winner-N" class="map-count-label">None</label>
+						</div>
+						<!--
+						<div style="width: 50%">
+							<label for="map-3-winner">Map 3 Winner</label>
+							<select id="map-3-winner">
+								<option selected>None</option>
+								<option id="team-1-map-3-win">Team 1</option>
+								<option id="team-2-map-3-win">Team 2</option>
+							</select>
+						</div>
+						-->
+					</div>
+                    <br>
+					<button type="submit">Update</button>
+				</form>
+			</div>
+		</div>
+
+		<script>
+			/* Team Information */
+            const map1 = nodecg.Replicant('map1');
+            const map2 = nodecg.Replicant('map2');
+            const map3 = nodecg.Replicant('map3');
+
+			const map1Winner = nodecg.Replicant('map1Winner');
+			const map2Winner = nodecg.Replicant('map2Winner');
+			const map3Winner = nodecg.Replicant('map3Winner');
+
+			const map1Score = nodecg.Replicant('map1Score');
+			const map2Score = nodecg.Replicant('map2Score');
+			const map3Score = nodecg.Replicant('map3Score');
+
+			const team1Name = nodecg.Replicant('team1Name');
+			const team2Name = nodecg.Replicant('team2Name');
+			const team1Acronym = nodecg.Replicant('team1Acronym');
+			const team2Acronym = nodecg.Replicant('team2Acronym');
+
+            const textForm = document.getElementById('map-information');
+
+			const map1Input = document.getElementById('map-1');
+			const map2Input = document.getElementById('map-2');
+			const map3Input = document.getElementById('map-3');
+
+			const map1ScoreInput = document.getElementById('map-1-score');
+			const map2ScoreInput = document.getElementById('map-2-score');
+			const map3ScoreInput = document.getElementById('map-3-score');
+
+			map1.on('change', value => {
+				document.getElementById('map-1').value = value;
+			});
+
+            map2.on('change', value => {
+				document.getElementById('map-2').value = value;
+			});
+
+            map3.on('change', value => {
+				document.getElementById('map-3').value = value;
+			});
+
+			map1Score.on('change', value => {
+				document.getElementById('map-1-score').value = value;
+			});
+
+			map2Score.on('change', value => {
+				document.getElementById('map-2-score').value = value;
+			});
+
+			map3Score.on('change', value => {
+				document.getElementById('map-3-score').value = value;
+			});
+
+			team1Acronym.on('change', value => {
+				document.getElementById('team-1-map-1-win').value = value;
+				document.getElementById('team-1-map-1-win-2').innerHTML = value;
+				document.getElementById('team-1-map-2-win').value = value;
+				document.getElementById('team-1-map-2-win-2').innerHTML = value;
+				document.getElementById('team-1-map-3-win').value = value;
+				document.getElementById('team-1-map-3-win-2').innerHTML = value;
+			});
+
+			team2Acronym.on('change', value => {
+				document.getElementById('team-2-map-1-win').value = value;
+				document.getElementById('team-2-map-1-win-2').innerHTML = value;
+				document.getElementById('team-2-map-2-win').value = value;
+				document.getElementById('team-2-map-2-win-2').innerHTML = value;
+				document.getElementById('team-2-map-3-win').value = value;
+				document.getElementById('team-2-map-3-win-2').innerHTML = value;
+			});
+
+            textForm.addEventListener('submit', e => {
+				e.preventDefault();
+				map1.value = map1Input.value;
+				map2.value = map2Input.value;
+				map3.value = map3Input.value;
+
+				var radioInfo = document.getElementById("map-information");
+                var map1WinnerInput = radioInfo.elements["map-win-1"].value;
+				var map2WinnerInput = radioInfo.elements["map-win-2"].value;
+				var map3WinnerInput = radioInfo.elements["map-win-3"].value;
+
+				map1Winner.value = map1WinnerInput;
+				map2Winner.value = map2WinnerInput;
+				map3Winner.value = map3WinnerInput;
+
+				map1Score.value = map1ScoreInput.value;
+				map2Score.value = map2ScoreInput.value;
+				map3Score.value = map3ScoreInput.value;
+			});
+		</script>
+	</body>
+</html>

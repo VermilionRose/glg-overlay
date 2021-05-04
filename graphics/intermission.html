@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starting Soon</title>
+    <link rel="stylesheet" href="intermission.css">
+</head>
+<body>
+    <div>
+        <img style="transform: scale(-1, -1);" id="grey-cover" src="images/startingSoon_Cover.png" alt="grey cover behind Jett">
+    </div>
+    <div>
+        <img id="Sova" src="images/intermission_Sova.png" alt="Sova with drone">
+    </div>
+    <div>
+        <img id="gradient" src="images/gradient.png" alt="grey gradient">
+    </div>
+    <div id="event-wrapper">
+        <div id="event">
+            <h3 class="event-info">
+                EVENTS
+            </h3>
+        </div>
+        <div id="event-1">
+            <h1 class="event-info" id="event-1-title">
+                PIT OF VALOR #38
+            </h1>
+            <h2 class="event-info" id="event-1-info">
+                WEDNESDAY, MAY 5TH @530PM EST | $100 PRIZE POOL
+            </h2>
+        </div>
+        <div id="event-2">
+            <h1 class="event-info" id="event-2-title">
+                ONCORE GOLF ESPORTS INVITATIONAL
+            </h1>
+            <h2 class="event-info" id="event-2-info">
+                PGA TOUR 2K21 | @ THE STRONG MUSEUM OF PLAY | LIVESTREAMED | SATURDAY, MAY 8TH
+            </h2>
+        </div>
+    </div>
+
+    <div id="tip-wrapper">
+        <div id="tip">
+            <h3 class="tip-info">
+                TIPS
+            </h3>
+        </div>
+        <div id="tip-1">
+            <h1 class="tip-info" id="tip-1-title">
+                JOIN OUR DISCORD!
+            </h1>
+            <h2 class="tip-info" id="tip-1-info">
+                GIVEAWAYS AND MEMES. WHAT MORE DO YOU WANT?
+            </h2>
+        </div>
+        <div id="tip-2">
+            <h1 class="tip-info" id="tip-2-title">
+                FOLLOW OUR TWITTER!
+            </h1>
+            <h2 class="tip-info" id="tip-2-info">
+                FOLLOW @GLGAMINGLOUNGES FOR TOURNAMENTS AND GIVEAWAYS!
+            </h2>
+        </div>
+    </div>
+</body>
+<script src="scripts/anime.min.js"></script>
+<script>
+    anime({
+        targets: '#grey-cover',
+        keyframes: [
+            {translateX: 150},
+            {translateX: 0}
+        ],
+        duration: 16000,
+        easing: 'easeInOutSine',
+        direction: 'alternate',
+        loop: true,
+    });
+
+
+    anime({
+        targets: '#Sova',
+        keyframes: [
+            {translateX: 200},
+            {translateX: 0}
+        ],
+        duration: 64000,
+        easing: 'easeInOutSine',
+        direction: 'alternate',
+        loop: true,
+        delay: anime.stagger(8000)
+    });
+
+    anime({
+        targets: '.event-info',
+        keyframes: [
+            {translateX: -1970, duration: 5000},
+            {translateY: 1080, duration: 5000, delay: 20000},
+            {translateX: 0, duration: 2500, delay: 20000},
+            {translateY: 0, duration: 2500}
+        ],
+        delay: anime.stagger(500, {direction: 'reverse'}),
+        loop: true,
+        easing: 'easeInOutElastic(1, 1)'
+    });
+
+    anime({
+        targets: '.tip-info',
+        keyframes: [
+            {translateX: 1970, duration: 5000},
+            {translateY: -1230, duration: 5000},
+            {translateX: 0, duration: 2500, delay: 20000},
+            {translateY: 0, duration: 2500, delay: 20000}
+        ],
+        delay: anime.stagger(500, {direction: 'reverse'}),
+        loop: true,
+        easing: 'easeInOutElastic(1, 1)'
+    });
+
+    const event1Title = nodecg.Replicant('event1Title');
+	const event1Info = nodecg.Replicant('event1Info');
+	const event2Title = nodecg.Replicant('event2Title');
+	const event2Info = nodecg.Replicant('event2Info');
+
+    const tip1Title = nodecg.Replicant('tip1Title');
+	const tip1Info = nodecg.Replicant('tip1Info');
+	const tip2Title = nodecg.Replicant('tip2Title');
+	const tip2Info = nodecg.Replicant('tip2Info');
+
+    event1Title.on('change', value => {
+        document.getElementById('event-1-title').innerHTML = value;
+    });
+
+    event1Info.on('change', value => {
+        document.getElementById('event-1-info').innerHTML = value;
+    });
+
+    event2Title.on('change', value => {
+        document.getElementById('event-2-title').innerHTML = value;
+    });
+
+    event2Info.on('change', value => {
+        document.getElementById('event-2-info').innerHTML = value;
+    });
+
+    tip1Title.on('change', value => {
+        document.getElementById('tip-1-title').innerHTML = value;
+    });
+
+    tip1Info.on('change', value => {
+        document.getElementById('tip-1-info').innerHTML = value;
+    });
+
+    tip2Title.on('change', value => {
+        document.getElementById('tip-2-title').innerHTML = value;
+    });
+
+    tip2Info.on('change', value => {
+        document.getElementById('tip-2-info').innerHTML = value;
+    });
+</script>
+</html>

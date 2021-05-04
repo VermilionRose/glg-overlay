@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starting Soon</title>
+    <link rel="stylesheet" href="startingsoon_style.css">
+</head>
+<body>
+    <div>
+        <img id="grey-cover" src="images/startingSoon_Cover.png" alt="grey cover behind Jett">
+    </div>
+    <div>
+        <img id="Jett" src="images/startingSoon_Jett.png" alt="Jett shooting gun">
+    </div>
+    <div>
+        <h1 id="countdown">
+            5:00
+        </h1>
+    </div>
+    <div>
+        <h2 id="event-name">
+            PIT OF VALOR
+        </h2>
+    </div>
+</body>
+<script src="scripts/anime.min.js"></script>
+<script>
+    anime({
+        targets: '#grey-cover',
+        keyframes: [
+            {translateX: 150},
+            {translateX: 0}
+        ],
+        duration: 16000,
+        easing: 'easeInOutSine',
+        direction: 'alternate',
+        loop: true,
+    });
+
+    anime({
+        targets: '#countdown',
+        keyframes: [
+            {translateX: 300},
+            {translateX: 0}
+        ],
+        duration: 32000,
+        easing: 'easeInOutSine',
+        direction: 'alternate',
+        loop: true,
+        delay: 2000
+    });
+
+    anime({
+        targets: '#Jett, #event-name',
+        keyframes: [
+            {translateX: 100},
+            {translateX: 0}
+        ],
+        duration: 16000,
+        easing: 'easeInOutSine',
+        direction: 'alternate',
+        loop: true,
+        delay: anime.stagger(8000)
+    });
+
+    const startTime = nodecg.Replicant('startTime');
+
+    var currentDate = new Date();
+    var currentDay = currentDate.getDate();
+    var currentMonth = currentDate.getMonth() + 1;
+    var currentYear = currentDate.getFullYear();
+
+    currentDay = (currentDay < 10) ? '0' + currentDay : currentDay;
+    currentMonth = (currentMonth < 10) ? '0' + currentMonth : currentMonth;
+
+    startTime.on('change', value => {
+        var stringDate = currentYear + '-' + currentMonth + '-' + currentDay + 'T' + value + ':00';
+        //countdown script
+        countDownDate = new Date(stringDate);
+
+        var x = setInterval(function() {
+            var currentTime = new Date().getTime();
+
+            var remTime = countDownDate - currentTime;
+
+            var s = Math.floor(remTime / 1000);
+            var m = Math.floor(s / 60);
+            var h = Math.floor(m / 60);
+
+            h %= 24;
+            m %= 60;
+            s %= 60;
+
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+            
+            // Display the result in the element with id="demo"
+            document.getElementById("countdown").innerHTML = m + ":" + s;
+
+            if (remTime < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "00:00";
+            }
+        }, 1000);
+    });
+</script>
+</html>
