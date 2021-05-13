@@ -129,6 +129,7 @@ h1, h2{
     height: 140px;
     width: 140px;
     transition: 1s all ease-in-out;
+	object-fit: contain;
 }
 
 #right-team-logo {
@@ -138,6 +139,7 @@ h1, h2{
     height: 140px;
     width: 140px;
     transition: 1s all ease-in-out;
+	object-fit: contain;
 }
 
 #middle-logo {
@@ -155,13 +157,14 @@ h1, h2{
 #middle-logo img {
     height: auto;
     width: 80%;
+	object-fit: contain;
 }
 
 .map-ticks {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    width: 150px;
+    width: auto;
 }
 
 .map-tick {
@@ -169,6 +172,10 @@ h1, h2{
     height: 14px;
     width: 55px;
     transition: 1s all ease-in-out;
+}
+
+.map-tick:nth-child(n+2) {
+	margin-left: 10px;
 }
 
 #advertisements {
@@ -208,29 +215,7 @@ h1, h2{
     left: 422px;
 }
 
-#map-1 {
-    background-image: url(maps/default.png);
-    background-size: cover;
-    height: 100%;
-    width: 100%;
-    background-position: center;
-    background-blend-mode: luminosity;
-    background-color: initial;
-    display: flex;
-}
-
-#map-2 {
-    background-image: url(maps/default.png);
-    background-size: cover;
-    height: 100%;
-    width: 100%;
-    background-position: center;
-    background-blend-mode: luminosity;
-    background-color: initial;
-    display: flex;
-}
-
-#map-3 {
+#map-1, #map-2, #map-3, #map-4, #map-5 {
     background-image: url(maps/default.png);
     background-size: cover;
     height: 100%;

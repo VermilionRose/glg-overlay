@@ -32,14 +32,20 @@ module.exports = function (nodecg) {
 	nodecg.Replicant('map1', {defaultValue: 'default'});
 	nodecg.Replicant('map2', {defaultValue: 'default'});
 	nodecg.Replicant('map3', {defaultValue: 'default'});
+	nodecg.Replicant('map4', {defaultValue: 'default'});
+	nodecg.Replicant('map5', {defaultValue: 'default'});
 
 	nodecg.Replicant('map1Winner', {defaultValue: 'none'});
 	nodecg.Replicant('map2Winner', {defaultValue: 'none'});
 	nodecg.Replicant('map3Winner', {defaultValue: 'none'});
+	nodecg.Replicant('map4Winner', {defaultValue: 'none'});
+	nodecg.Replicant('map5Winner', {defaultValue: 'none'});
 
 	nodecg.Replicant('map1Score', {defaultValue: '0-0'});
 	nodecg.Replicant('map2Score', {defaultValue: '0-0'});
 	nodecg.Replicant('map3Score', {defaultValue: '0-0'});
+	nodecg.Replicant('map4Score', {defaultValue: '0-0'});
+	nodecg.Replicant('map5Score', {defaultValue: '0-0'});
 
 	nodecg.Replicant('startTime');
 

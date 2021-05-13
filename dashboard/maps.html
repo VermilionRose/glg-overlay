@@ -16,6 +16,9 @@
 
                 <input type="radio" class="map-count-input" id="map-count-3" name="map-count" value="3">
                 <label class="map-count-label" for="map-count-3">Bo3</label>
+				
+				<input type="radio" class="map-count-input" id="map-count-5" name="map-count" value="5">
+                <label class="map-count-label" for="map-count-5">Bo5</label>
 
                 <button type="submit">Update</button>
             </div>
@@ -137,9 +140,9 @@
             textForm2.addEventListener('submit', e => {
 				e.preventDefault();
                 var radioInfo = document.getElementById("switch-sides");
-                var selectedMapCount = radioInfo.elements["side-switch"].value;
-				sideSwitch.value = selectedMapCount;
-                console.log(selectedMapCount);
+                var sideSwitchTemp = radioInfo.elements["side-switch"].value;
+				sideSwitch.value = sideSwitchTemp;
+                console.log(sideSwitchTemp);
 			})
 
             team1Name.on('change', value => {

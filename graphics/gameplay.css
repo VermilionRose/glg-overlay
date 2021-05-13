@@ -37,7 +37,7 @@ body {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    width: 36px;
+    width: auto;
 }
 
 .map-tick {
@@ -45,6 +45,10 @@ body {
     height: 14px;
     width: 14px;
     transition: 1s all ease-in-out;
+}
+
+.map-tick:nth-child(n+2) {
+	margin-left: 3px;
 }
 
 .team-logo{ 
@@ -164,6 +168,7 @@ body {
     color: rgba(95, 95, 95, 0.85);
     font-size: 75px;
     letter-spacing: 5px;
+	display: none;
 }
 
 #host-name {
@@ -171,6 +176,7 @@ body {
     letter-spacing: 3px;
     font-size: 125%;
     margin-top: -30px;
+	display: none;
 }
 
 /* Right */
@@ -184,6 +190,10 @@ body {
     position: absolute;
     left: 1555px;
     top: 920px
+}
+
+#voicesOf {
+	text-shadow: 2px 2px 0px #aaa;
 }
 
 #caster-names {
@@ -278,6 +288,7 @@ body {
     height: 140px;
     width: 140px;
     transition: 1s all ease-in-out;
+	object-fit: contain;
 }
 
 #right-team-logo-extra {
@@ -287,6 +298,11 @@ body {
     height: 140px;
     width: 140px;
     transition: 1s all ease-in-out;
+	object-fit: contain;
+}
+
+#right-team-logo-extra img, #left-team-logo-extra img {
+	object-fit: contain;
 }
 
 #middle-logo {
@@ -320,6 +336,10 @@ body {
     transition: 1s all ease-in-out;
 }
 
+.map-tick-extra:nth-child(n+2) {
+	margin-left: 10px;
+}
+
 #left-team-score-extra, #right-team-score-extra {
     background-color: white;
     top: 0px;
@@ -351,29 +371,7 @@ body {
     transition: bottom 2s ease-in-out;
 }
 
-#map-1 {
-    background-image: url(maps/default.png);
-    background-size: cover;
-    height: 100%;
-    width: 100%;
-    background-position: center;
-    background-blend-mode: luminosity;
-    background-color: initial;
-    display: flex;
-}
-
-#map-2 {
-    background-image: url(maps/default.png);
-    background-size: cover;
-    height: 100%;
-    width: 100%;
-    background-position: center;
-    background-blend-mode: luminosity;
-    background-color: initial;
-    display: flex;
-}
-
-#map-3 {
+#map-1, #map-2, #map-3, #map-4, #map-5 {
     background-image: url(maps/default.png);
     background-size: cover;
     height: 100%;

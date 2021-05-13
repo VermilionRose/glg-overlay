@@ -93,16 +93,62 @@
 							<input type="radio" id="map-3-winner-N" class="map-count-input" for="map-3-winner-N" value="None" name="map-win-3" checked>
 							<label for="map-3-winner-N" class="map-count-label">None</label>
 						</div>
-						<!--
-						<div style="width: 50%">
-							<label for="map-3-winner">Map 3 Winner</label>
-							<select id="map-3-winner">
-								<option selected>None</option>
-								<option id="team-1-map-3-win">Team 1</option>
-								<option id="team-2-map-3-win">Team 2</option>
+					</div>
+					<br>
+					<div style="display: flex; justify-content: space-between;">
+						<div style="width: 50%; flex-direction: column;">
+							<label for="map-4">Map 4</label>
+							<select id="map-4">
+								<option value="default" selected>None</option>
+								<option value="ascent">Ascent</option>
+								<option value="bind">Bind</option>
+								<option value="breeze">Breeze</option>
+								<option value="haven">Haven</option>
+								<option value="icebox">Icebox</option>
+								<option value="split">Split</option>
 							</select>
+							<br>
+							<label for="map-4-score">Map 4 Score</label>
+  							<input type="text" id="map-4-score" name="map-4-score">
 						</div>
-						-->
+						<div class="radio">
+							<input type="radio" id="team-1-map-4-win" class="map-count-input" for="map-4-winner-1" value="Team 1" name="map-win-4">
+							<label id="team-1-map-4-win-2" class="map-count-label" for="team-1-map-4-win">Team 1</label>
+
+							<input type="radio" id="team-2-map-4-win" class="map-count-input" for="map-4-winner-2" value="Team 2" name="map-win-4">
+							<label id="team-2-map-4-win-2" class="map-count-label" for="team-2-map-4-win">Team 2</label>
+
+							<input type="radio" id="map-4-winner-N" class="map-count-input" for="map-4-winner-N" value="None" name="map-win-4" checked>
+							<label for="map-4-winner-N" class="map-count-label">None</label>
+						</div>
+					</div>
+                    <br>
+					<div style="display: flex; justify-content: space-between;">
+						<div style="width: 50%; flex-direction: column;">
+							<label for="map-5">Map 5</label>
+							<select id="map-5">
+								<option value="default" selected>None</option>
+								<option value="ascent">Ascent</option>
+								<option value="bind">Bind</option>
+								<option value="breeze">Breeze</option>
+								<option value="haven">Haven</option>
+								<option value="icebox">Icebox</option>
+								<option value="split">Split</option>
+							</select>
+							<br>
+							<label for="map-5-score">Map 5 Score</label>
+  							<input type="text" id="map-5-score" name="map-5-score">
+						</div>
+						<div class="radio">
+							<input type="radio" id="team-1-map-5-win" class="map-count-input" for="map-5-winner-1" value="Team 1" name="map-win-5">
+							<label id="team-1-map-5-win-2" class="map-count-label" for="team-1-map-5-win">Team 1</label>
+
+							<input type="radio" id="team-2-map-5-win" class="map-count-input" for="map-5-winner-2" value="Team 2" name="map-win-5">
+							<label id="team-2-map-5-win-2" class="map-count-label" for="team-2-map-5-win">Team 2</label>
+
+							<input type="radio" id="map-5-winner-N" class="map-count-input" for="map-5-winner-N" value="None" name="map-win-5" checked>
+							<label for="map-5-winner-N" class="map-count-label">None</label>
+						</div>
 					</div>
                     <br>
 					<button type="submit">Update</button>
@@ -115,14 +161,20 @@
             const map1 = nodecg.Replicant('map1');
             const map2 = nodecg.Replicant('map2');
             const map3 = nodecg.Replicant('map3');
+			const map4 = nodecg.Replicant('map4');
+			const map5 = nodecg.Replicant('map5');
 
 			const map1Winner = nodecg.Replicant('map1Winner');
 			const map2Winner = nodecg.Replicant('map2Winner');
 			const map3Winner = nodecg.Replicant('map3Winner');
+			const map4Winner = nodecg.Replicant('map4Winner');
+			const map5Winner = nodecg.Replicant('map5Winner');
 
 			const map1Score = nodecg.Replicant('map1Score');
 			const map2Score = nodecg.Replicant('map2Score');
 			const map3Score = nodecg.Replicant('map3Score');
+			const map4Score = nodecg.Replicant('map4Score');
+			const map5Score = nodecg.Replicant('map5Score');
 
 			const team1Name = nodecg.Replicant('team1Name');
 			const team2Name = nodecg.Replicant('team2Name');
@@ -134,10 +186,14 @@
 			const map1Input = document.getElementById('map-1');
 			const map2Input = document.getElementById('map-2');
 			const map3Input = document.getElementById('map-3');
+			const map4Input = document.getElementById('map-4');
+			const map5Input = document.getElementById('map-5');
 
 			const map1ScoreInput = document.getElementById('map-1-score');
 			const map2ScoreInput = document.getElementById('map-2-score');
 			const map3ScoreInput = document.getElementById('map-3-score');
+			const map4ScoreInput = document.getElementById('map-4-score');
+			const map5ScoreInput = document.getElementById('map-5-score');
 
 			map1.on('change', value => {
 				document.getElementById('map-1').value = value;
@@ -149,6 +205,14 @@
 
             map3.on('change', value => {
 				document.getElementById('map-3').value = value;
+			});
+			
+			map4.on('change', value => {
+				document.getElementById('map-4').value = value;
+			});
+			
+			map5.on('change', value => {
+				document.getElementById('map-5').value = value;
 			});
 
 			map1Score.on('change', value => {
@@ -162,6 +226,14 @@
 			map3Score.on('change', value => {
 				document.getElementById('map-3-score').value = value;
 			});
+			
+			map4Score.on('change', value => {
+				document.getElementById('map-4-score').value = value;
+			});
+			
+			map5Score.on('change', value => {
+				document.getElementById('map-5-score').value = value;
+			});
 
 			team1Acronym.on('change', value => {
 				document.getElementById('team-1-map-1-win').value = value;
@@ -170,6 +242,11 @@
 				document.getElementById('team-1-map-2-win-2').innerHTML = value;
 				document.getElementById('team-1-map-3-win').value = value;
 				document.getElementById('team-1-map-3-win-2').innerHTML = value;
+				document.getElementById('team-1-map-4-win').value = value;
+				document.getElementById('team-1-map-4-win-2').innerHTML = value;
+				document.getElementById('team-1-map-5-win').value = value;
+				document.getElementById('team-1-map-5-win-2').innerHTML = value;
+				
 			});
 
 			team2Acronym.on('change', value => {
@@ -179,6 +256,10 @@
 				document.getElementById('team-2-map-2-win-2').innerHTML = value;
 				document.getElementById('team-2-map-3-win').value = value;
 				document.getElementById('team-2-map-3-win-2').innerHTML = value;
+				document.getElementById('team-2-map-4-win').value = value;
+				document.getElementById('team-2-map-4-win-2').innerHTML = value;
+				document.getElementById('team-2-map-5-win').value = value;
+				document.getElementById('team-2-map-5-win-2').innerHTML = value;
 			});
 
             textForm.addEventListener('submit', e => {
@@ -186,19 +267,27 @@
 				map1.value = map1Input.value;
 				map2.value = map2Input.value;
 				map3.value = map3Input.value;
+				map4.value = map4Input.value;
+				map5.value = map5Input.value;
 
 				var radioInfo = document.getElementById("map-information");
                 var map1WinnerInput = radioInfo.elements["map-win-1"].value;
 				var map2WinnerInput = radioInfo.elements["map-win-2"].value;
 				var map3WinnerInput = radioInfo.elements["map-win-3"].value;
+				var map4WinnerInput = radioInfo.elements["map-win-4"].value;
+				var map5WinnerInput = radioInfo.elements["map-win-5"].value;
 
 				map1Winner.value = map1WinnerInput;
 				map2Winner.value = map2WinnerInput;
 				map3Winner.value = map3WinnerInput;
+				map4Winner.value = map4WinnerInput;
+				map5Winner.value = map5WinnerInput;
 
 				map1Score.value = map1ScoreInput.value;
 				map2Score.value = map2ScoreInput.value;
 				map3Score.value = map3ScoreInput.value;
+				map4Score.value = map4ScoreInput.value;
+				map5Score.value = map5ScoreInput.value;
 			});
 		</script>
 	</body>
