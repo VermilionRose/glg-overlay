@@ -168,7 +168,6 @@ body {
     color: rgba(95, 95, 95, 0.85);
     font-size: 75px;
     letter-spacing: 5px;
-	display: none;
 }
 
 #host-name {
@@ -176,7 +175,6 @@ body {
     letter-spacing: 3px;
     font-size: 125%;
     margin-top: -30px;
-	display: none;
 }
 
 /* Right */
