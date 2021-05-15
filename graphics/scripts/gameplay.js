@@ -273,18 +273,33 @@ team2SeriesScore.on('change', value => {
         rightMapTicks[0].style.backgroundColor = 'rgba(0,0,0,.25)';
         rightMapTicks[1].style.backgroundColor = 'rgba(0,0,0,.25)';
 		rightMapTicks[2].style.backgroundColor = 'rgba(0,0,0,.25)';
+		
+		rightMapTicksExtra[0].style.backgroundColor = 'rgba(0,0,0,.25)';
+        rightMapTicksExtra[1].style.backgroundColor = 'rgba(0,0,0,.25)';
+		rightMapTicksExtra[2].style.backgroundColor = 'rgba(0,0,0,.25)';
     } else if (value == 1) {
-		rightMapTicks[0].style.backgroundColor = 'rgba(0,0,0,.25)';
+		rightMapTicks[0].style.backgroundColor = 'rgba(255,255,255,1)';
         rightMapTicks[1].style.backgroundColor = 'rgba(0,0,0,.25)';
-		rightMapTicks[2].style.backgroundColor = 'rgba(255,255,255,1)';
+		rightMapTicks[2].style.backgroundColor = 'rgba(0,0,0,.25)';
+
+		rightMapTicksExtra[0].style.backgroundColor = 'rgba(255,255,255,1)';
+        rightMapTicksExtra[1].style.backgroundColor = 'rgba(0,0,0,.25)';
+		rightMapTicksExtra[2].style.backgroundColor = 'rgba(0,0,0,.25)';
     } else if (value == 2) {
-        rightMapTicks[0].style.backgroundColor = 'rgba(0,0,0,.25)';
+        rightMapTicks[0].style.backgroundColor = 'rgba(255,255,255,1)';
         rightMapTicks[1].style.backgroundColor = 'rgba(255,255,255,1)';
-		rightMapTicks[2].style.backgroundColor = 'rgba(255,255,255,1)';
+		rightMapTicks[2].style.backgroundColor = 'rgba(0,0,0,.25)';
+		rightMapTicksExtra[0].style.backgroundColor = 'rgba(255,255,255,1)';
+        rightMapTicksExtra[1].style.backgroundColor = 'rgba(255,255,255,1)';
+		rightMapTicksExtra[2].style.backgroundColor = 'rgba(0,0,0,.25)';
     } else {
 		rightMapTicks[0].style.backgroundColor = 'rgba(255,255,255,1)';
         rightMapTicks[1].style.backgroundColor = 'rgba(255,255,255,1)';
 		rightMapTicks[2].style.backgroundColor = 'rgba(255,255,255,1)';
+		
+		rightMapTicksExtra[0].style.backgroundColor = 'rgba(255,255,255,1)';
+        rightMapTicksExtra[1].style.backgroundColor = 'rgba(255,255,255,1)';
+		rightMapTicksExtra[2].style.backgroundColor = 'rgba(255,255,255,1)';
 	}
 });
 

@@ -166,8 +166,9 @@ body {
     font-family: Boldine;
     font-weight: lighter;
     color: rgba(95, 95, 95, 0.85);
-    font-size: 75px;
+    font-size: 50px;
     letter-spacing: 5px;
+    text-shadow: 2px 2px 0px #aaa;
 }
 
 #host-name {
@@ -317,7 +318,7 @@ body {
 #middle-logo img {
     height: auto;
     width: 80%;
-    filter: invert(1);
+    filter: invert(0);
 }
 
 .map-ticks-extra {
