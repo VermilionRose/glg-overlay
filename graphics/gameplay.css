@@ -169,6 +169,7 @@ body {
     font-size: 50px;
     letter-spacing: 5px;
     text-shadow: 2px 2px 0px #aaa;
+    display: none;
 }
 
 #host-name {
@@ -176,6 +177,7 @@ body {
     letter-spacing: 3px;
     font-size: 125%;
     margin-top: -30px;
+    display: none;
 }
 
 /* Right */
@@ -318,7 +320,7 @@ body {
 #middle-logo img {
     height: auto;
     width: 80%;
-    filter: invert(0);
+    filter: invert(1);
 }
 
 .map-ticks-extra {

@@ -32,8 +32,8 @@ h1, h2{
 }
 
 #event-name {
-    opacity: .5;
-    font-size: 150px;
+    opacity: .2;
+    font-size: 175px;
     width: 90%;
     text-align: center;
 }
