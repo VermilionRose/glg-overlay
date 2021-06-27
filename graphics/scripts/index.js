@@ -116,12 +116,12 @@ team2Logo.on('change', value => {
 
 teamSideSwapBoolean.on('change', value => {
     if (value == 0) {
-        document.getElementById('lower-third').style.display = 'initial';
-        document.getElementById('lower-third-swapped').style.display = 'none';
+        document.getElementById('lower-third').style.opacity = '1';
+        document.getElementById('lower-third-swapped').style.opacity = '0';
         return;
     }
-    document.getElementById('lower-third').style.display = 'none';
-    document.getElementById('lower-third-swapped').style.display = 'initial';
+    document.getElementById('lower-third').style.opacity = '1';
+    document.getElementById('lower-third-swapped').style.opacity = '1';
 });
 
 //more complicated Replicant change trackers

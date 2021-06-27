@@ -57,6 +57,7 @@ h1, h2{
     position: absolute;
     top: 740px;
     width: 1920px;
+    transition: all 1s linear;
 }
 
 #left-team, #right-team, #left-team-swapped, #right-team-swapped {
