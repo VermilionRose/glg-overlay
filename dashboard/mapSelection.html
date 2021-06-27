@@ -11,7 +11,7 @@
 		<div>
 			<div id="map">
 				<form id="map-information">
-					<div style="display: flex; justify-content: space-between;">
+					<div class="map-selection-container" style="display: flex; justify-content: space-between;">
 						<div style="width: 50%; flex-direction: column;">
 							<label for="map-1">Map 1</label>
 							<select id="map-1">
@@ -38,8 +38,8 @@
 							<label for="map-1-winner-N" class="map-count-label">None</label>
 						</div>
 					</div>
-                    <br>
-                    <div style="display: flex; justify-content: space-between;">
+
+                    <div class="map-selection-container" style="display: flex; justify-content: space-between;">
 						<div style="width: 50%; flex-direction: column;">
 							<label for="map-2">Map 2</label>
 							<select id="map-2">
@@ -66,8 +66,8 @@
 							<label for="map-2-winner-N" class="map-count-label">None</label>
 						</div>
 					</div>
-                    <br>
-                    <div style="display: flex; justify-content: space-between;">
+
+                    <div class="map-selection-container" style="display: flex; justify-content: space-between;">
 						<div style="width: 50%; flex-direction: column;">
 							<label for="map-3">Map 3</label>
 							<select id="map-3">
@@ -94,8 +94,8 @@
 							<label for="map-3-winner-N" class="map-count-label">None</label>
 						</div>
 					</div>
-					<br>
-					<div style="display: flex; justify-content: space-between;">
+
+					<div class="map-selection-container" style="display: flex; justify-content: space-between;">
 						<div style="width: 50%; flex-direction: column;">
 							<label for="map-4">Map 4</label>
 							<select id="map-4">
@@ -122,8 +122,8 @@
 							<label for="map-4-winner-N" class="map-count-label">None</label>
 						</div>
 					</div>
-                    <br>
-					<div style="display: flex; justify-content: space-between;">
+
+					<div class="map-selection-container" style="display: flex; justify-content: space-between;">
 						<div style="width: 50%; flex-direction: column;">
 							<label for="map-5">Map 5</label>
 							<select id="map-5">
@@ -150,7 +150,7 @@
 							<label for="map-5-winner-N" class="map-count-label">None</label>
 						</div>
 					</div>
-                    <br>
+
 					<button type="submit">Update</button>
 				</form>
 			</div>
@@ -180,6 +180,8 @@
 			const team2Name = nodecg.Replicant('team2Name');
 			const team1Acronym = nodecg.Replicant('team1Acronym');
 			const team2Acronym = nodecg.Replicant('team2Acronym');
+
+			const mapCount = nodecg.Replicant('mapCount');
 
             const textForm = document.getElementById('map-information');
 
@@ -260,6 +262,40 @@
 				document.getElementById('team-2-map-4-win-2').innerHTML = value;
 				document.getElementById('team-2-map-5-win').value = value;
 				document.getElementById('team-2-map-5-win-2').innerHTML = value;
+			});
+
+			mapCount.on('change', value => {
+				var mapSelectionList = document.getElementById('map-information').children;
+
+				var map1 = mapSelectionList[0];
+				var map2 = mapSelectionList[1];
+				var map3 = mapSelectionList[2];
+				var map4 = mapSelectionList[3];
+				var map5 = mapSelectionList[4];
+				
+				if (value == 1) {
+					map1.style.display = 'flex';
+					map2.style.display = 'none';
+					map3.style.display = 'none';
+					map4.style.display = 'none';
+					map5.style.display = 'none';
+					return;
+				}
+
+				if (value == 3) {
+					map1.style.display = 'flex';
+					map2.style.display = 'flex';
+					map3.style.display = 'flex';
+					map4.style.display = 'none';
+					map5.style.display = 'none';
+					return;
+				}
+
+				map1.style.display = 'flex';
+				map2.style.display = 'flex';
+				map3.style.display = 'flex';
+				map4.style.display = 'flex';
+				map5.style.display = 'flex';
 			});
 
             textForm.addEventListener('submit', e => {

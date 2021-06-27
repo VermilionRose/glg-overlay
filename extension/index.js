@@ -16,7 +16,7 @@ module.exports = function (nodecg) {
 	nodecg.Replicant('team1Logo', {defaultValue: 'default'});
 	nodecg.Replicant('team2Logo', {defaultValue: 'default'});
 
-	nodecg.Replicant('mapCount', {defaultValue: '1'});
+	nodecg.Replicant('mapCount', {defaultValue: '3'});
 
 	nodecg.Replicant('team1MapScore', {defaultValue: '0'});
 	nodecg.Replicant('team2MapScore', {defaultValue: '0'});

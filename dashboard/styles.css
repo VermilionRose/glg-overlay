@@ -135,3 +135,7 @@ button {
 .select {
     width: 100%;
 }
+
+.map-selection-container {
+    padding-bottom: 1em;
+}

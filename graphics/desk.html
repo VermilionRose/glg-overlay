@@ -192,6 +192,26 @@
 				easing: 'easeInOutSine',
 				loop: true
 			});
+
+			//preloading images
+			var images = new Array();
+
+			function preload() {
+				for (i = 0; i < preload.arguments.length; i++) {
+					images[i] = new Image()
+					images[i].src = preload.arguments[i]
+				};
+			};
+
+			preload(
+				"./maps/Ascent.png",
+				"./maps/Bind.png",
+				"./maps/Breeze.png",
+				"./maps/default.png",
+				"./maps/Haven.png",
+				"./maps/Icebox.png",
+				"./maps/Split.png"
+			)
 		</script>
 	</body>
 </html>
