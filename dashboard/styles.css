@@ -27,11 +27,11 @@ button {
     width: 50%;
 }
 
-.map-count-input {
+.map-count-input, .team-side-swap {
     display: none;
 }
 
-.map-count-label {
+.map-count-label, .team-side-swap-label {
     padding: 8px 14px;
     font-size: 14px;
     color: #fff;

@@ -51,6 +51,8 @@ module.exports = function (nodecg) {
 
 	nodecg.Replicant('ExtraBoolean', {defaultValue: 'false'});
 
+	nodecg.Replicant('TeamSideSwapBoolean', {defaultValue: 'false'})
+
 	nodecg.Replicant('event1Title', {defaultValue: 'Event 1 Title'});
 	nodecg.Replicant('event1Info', {defaultValue: 'Event 1 Info'});
 	nodecg.Replicant('event2Title', {defaultValue: 'Event 2 Title'});

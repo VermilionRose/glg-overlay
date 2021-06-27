@@ -59,6 +59,19 @@
 
 					<button type="submit">Update</button>
 				</form>
+
+				<h3>Team Side Swap</h3>
+				<form id="team-side-swap">
+					<div class="radio">
+						<input type="radio" class="map-count-input" id="team-side-swap-f" name="side-swap" value="0" checked>
+						<label class="map-count-label" for="team-side-swap-f">False</label>
+
+						<input type="radio" class="map-count-input" id="team-side-swap-t" name="side-swap" value="1">
+						<label class="map-count-label" for="team-side-swap-t">True</label>
+
+						<button type="submit">Update</button>
+					</div>
+				</form>
 			</div>
 		</div>
 
@@ -75,10 +88,12 @@
 			const team2Color = nodecg.Replicant('team2Color'); 
 
 			const textForm1 = document.getElementById('team-1-information');
-			const textForm2 = document.getElementById('team-2-information');
+			const textForm2 = document.getElementById('team-side-swap');
 
 			const team1Logo = nodecg.Replicant('team1Logo');
 			const team2Logo = nodecg.Replicant('team2Logo');
+
+			const teamSideSwapBoolean = nodecg.Replicant('TeamSideSwapBoolean');
 
 			const team1Box = document.getElementById('team-1-name');
 			const team1AcronymBox = document.getElementById('team-1-acronym');
@@ -117,6 +132,13 @@
 				team2Acronym.value = team2AcronymBox.value;
 				team2Color.value = team2ColorBox.value;
 				team2Logo.value = assetPath + team2LogoBox.value + '.png';
+			})
+
+			textForm2.addEventListener('submit', e => {
+				e.preventDefault();
+                var radioInfo = document.getElementById("team-side-swap");
+                var sideSwitchTemp = radioInfo.elements["side-swap"].value;
+				teamSideSwapBoolean.value = sideSwitchTemp;
 			})
 
 		</script>

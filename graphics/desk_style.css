@@ -88,7 +88,7 @@ h1, h2{
     align-items: center;
 }
 
-#left-team-color, #right-team-color {
+#left-team-color, #right-team-color, #left-team-color-swapped, #right-team-color-swapped {
     height: 180px;
     width: 305px;
     position: absolute;
@@ -97,32 +97,32 @@ h1, h2{
     transition: 1s all ease-in-out;
 }
 
-#left-team-color {
+#left-team-color, #left-team-color-swapped {
     left: 565px;
     clip-path: polygon(100% 0, 100% 100%, 7% 100%, 0 83%, 0 0);
 }
 
-#right-team-color {
+#right-team-color, #right-team-color-swapped {
     right: 565px;
     clip-path: polygon(100% 0, 100% 83%, 93% 100%, 0 100%, 0 0);
 }
 
-#left-team-mode, #right-team-mode {
+#left-team-mode, #right-team-mode, #left-team-mode-swapped, #right-team-mode-swapped {
     font-size: 50px;
     transition: 1s all ease-in-out;
 }
 
-#left-team-mode {
+#left-team-mode, #left-team-mode-swapped {
     position: absolute;
     left: 361px;
 }
 
-#right-team-mode {
+#right-team-mode, #right-team-mode-swapped {
     position: absolute;
     left: 204px;
 }
 
-#left-team-logo {
+#left-team-logo, #left-team-logo-swapped {
     position: absolute;
     top: 5px;
     left: 32px;
@@ -132,7 +132,7 @@ h1, h2{
 	object-fit: contain;
 }
 
-#right-team-logo {
+#right-team-logo, #right-team-logo-swapped {
     position: absolute;
     top: 5px;
     right: 32px;

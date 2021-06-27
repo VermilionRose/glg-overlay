@@ -1,3 +1,12 @@
+//JS functions to shorten necessary getElementById functions
+function setStyle(element, property, value) {
+    document.getElementById(element).style[property] = value;
+}
+
+function setInnerHTML(element, value) {
+    document.getElementById(element).innerHTML = value;
+}
+
 //calling all necessary Replicants
 
 //instantiating event and host information
@@ -30,6 +39,9 @@ const mapCount = nodecg.Replicant('mapCount');
 const team1SeriesScore = nodecg.Replicant('team1SeriesScore');
 const team2SeriesScore = nodecg.Replicant('team2SeriesScore');
 
+//team side swap on the controller
+const teamSideSwapBoolean = nodecg.Replicant('TeamSideSwapBoolean');
+
 //map picks (ascent, bind, haven, icebox, split)
 const map1 = nodecg.Replicant('map1');
 const map2 = nodecg.Replicant('map2');
@@ -61,7 +73,7 @@ hostName.on('change', value => {
 });
 
 casterLeft.on('change', value => {
-    document.getElementById('caster-left').innerHTML = value;
+    document.getElementById('caster-left').innerHTML = value; 
 });
 
 casterRight.on('change', value => {
@@ -70,28 +82,68 @@ casterRight.on('change', value => {
 
 team1Acronym.on('change', value => {
     document.getElementById('left-team-name').innerHTML = value;
+    document.getElementById('right-team-name-swapped').innerHTML = value;
 });
 
 team2Acronym.on('change', value => {
     document.getElementById('right-team-name').innerHTML = value;
+    document.getElementById('left-team-name-swapped').innerHTML = value;
 });
 
 team1Color.on('change', value => {
-    document.getElementById('left-team-color').style.backgroundColor = value;
-    document.getElementById('left-team-mode').style.color = value;
+    setStyle('left-team-color', 'backgroundColor', value);
+    setStyle('left-team-mode', 'color', value);
+    setStyle('right-team-color-swapped', 'backgroundColor', value);
+    setStyle('right-team-mode-swapped', 'color', value);
 });
 
 team2Color.on('change', value => {
-    document.getElementById('right-team-color').style.backgroundColor = value;
-    document.getElementById('right-team-mode').style.color = value;
+    setStyle('right-team-color', 'backgroundColor', value);
+    setStyle('right-team-mode', 'color', value);
+    setStyle('left-team-color-swapped', 'backgroundColor', value);
+    setStyle('left-team-mode-swapped', 'color', value);
 });
 
 team1Logo.on('change', value => {
     document.getElementById('left-team-logo').src = value;
+    document.getElementById('right-team-logo-swapped').src = value;
 });
 
 team2Logo.on('change', value => {
     document.getElementById('right-team-logo').src = value;
+    document.getElementById('left-team-logo-swapped').src = value;
+});
+
+teamSideSwapBoolean.on('change', value => {
+    if (value == 0) {
+        document.getElementById('left-team-logo-swapped').style.display = 'none';
+        document.getElementById('right-team-logo-swapped').style.display = 'none';
+        document.getElementById('left-team-mode-swapped').style.display = 'none';
+        document.getElementById('right-team-mode-swapped').style.display = 'none';
+        document.getElementById('left-team-color-swapped').style.display = 'none';
+        document.getElementById('right-team-color-swapped').style.display = 'none';
+
+        document.getElementById('left-team-logo').style.display = 'initial';
+        document.getElementById('right-team-logo').style.display = 'initial';
+        document.getElementById('left-team-mode').style.display = 'initial';
+        document.getElementById('right-team-mode').style.display = 'initial';
+        document.getElementById('left-team-color').style.display = 'initial';
+        document.getElementById('right-team-color').style.display = 'initial';
+        return;
+    }
+    document.getElementById('left-team-logo-swapped').style.display = 'initial';
+    document.getElementById('right-team-logo-swapped').style.display = 'initial';
+    document.getElementById('left-team-mode-swapped').style.display = 'initial';
+    document.getElementById('right-team-mode-swapped').style.display = 'initial';
+    document.getElementById('left-team-color-swapped').style.display = 'initial';
+    document.getElementById('right-team-color-swapped').style.display = 'initial';
+
+    document.getElementById('left-team-logo').style.display = 'none';
+    document.getElementById('right-team-logo').style.display = 'none';
+    document.getElementById('left-team-mode').style.display = 'none';
+    document.getElementById('right-team-mode').style.display = 'none';
+    document.getElementById('left-team-color').style.display = 'none';
+    document.getElementById('right-team-color').style.display = 'none';
 });
 
 //more complicated Replicant change trackers
@@ -99,6 +151,8 @@ team2Logo.on('change', value => {
 mapCount.on('change', value => {
     var leftMapTicks = document.getElementById('left-map-ticks').children;
     var rightMapTicks = document.getElementById('right-map-ticks').children;
+    var leftMapTicksSwapped = document.getElementById('left-map-ticks-swapped').children;
+    var rightMapTicksSwapped = document.getElementById('right-map-ticks-swapped').children;
     var mapList = document.getElementById('maps').children;
     
 	if (value == 3) {
@@ -108,6 +162,14 @@ mapCount.on('change', value => {
         rightMapTicks[0].style.display = 'flex';
 		rightMapTicks[1].style.display = 'flex';
 		rightMapTicks[2].style.display = 'none';
+
+        leftMapTicksSwapped[0].style.display = 'flex';
+		leftMapTicksSwapped[1].style.display = 'flex';
+        leftMapTicksSwapped[2].style.display = 'none';
+        rightMapTicksSwapped[0].style.display = 'flex';
+		rightMapTicksSwapped[1].style.display = 'flex';
+		rightMapTicksSwapped[2].style.display = 'none';
+
         mapList[0].style.width = '33.3%';
         mapList[1].style.width = '33.3%';
         mapList[2].style.width = '33.4%';
@@ -124,6 +186,14 @@ mapCount.on('change', value => {
         rightMapTicks[0].style.display = 'flex';
 		rightMapTicks[1].style.display = 'flex';
 		rightMapTicks[2].style.display = 'flex';
+
+        leftMapTicksSwapped[0].style.display = 'flex';
+		leftMapTicksSwapped[1].style.display = 'flex';
+        leftMapTicksSwapped[2].style.display = 'flex';
+        rightMapTicksSwapped[0].style.display = 'flex';
+		rightMapTicksSwapped[1].style.display = 'flex';
+		rightMapTicksSwapped[2].style.display = 'flex';
+
         mapList[0].style.width = '20%';
         mapList[1].style.width = '20%';
         mapList[2].style.width = '20%';
@@ -139,6 +209,14 @@ mapCount.on('change', value => {
 	rightMapTicks[0].style.display = 'flex';
 	rightMapTicks[1].style.display = 'none';
 	rightMapTicks[2].style.display = 'none';
+
+    leftMapTicksSwapped[0].style.display = 'flex';
+	leftMapTicksSwapped[1].style.display = 'none';
+	leftMapTicksSwapped[2].style.display = 'none';
+	rightMapTicksSwapped[0].style.display = 'flex';
+	rightMapTicksSwapped[1].style.display = 'none';
+	rightMapTicksSwapped[2].style.display = 'none';
+
     mapList[0].style.width = '100%';
     mapList[1].style.width = '0%';
     mapList[2].style.width = '0%';
@@ -154,45 +232,71 @@ hostLogo.on('change', value => {
 
 team1SeriesScore.on('change', value => {
     var leftMapTicks = document.getElementById('left-map-ticks').children;
+    var leftMapTicksSwapped = document.getElementById('right-map-ticks-swapped').children;
 
     if (value == 0) {
         leftMapTicks[0].style.backgroundColor = 'rgba(0,0,0,.25)';
         leftMapTicks[1].style.backgroundColor = 'rgba(0,0,0,.25)';
 		leftMapTicks[2].style.backgroundColor = 'rgba(0,0,0,.25)';
+        leftMapTicksSwapped[0].style.backgroundColor = 'rgba(0,0,0,.25)';
+        leftMapTicksSwapped[1].style.backgroundColor = 'rgba(0,0,0,.25)';
+		leftMapTicksSwapped[2].style.backgroundColor = 'rgba(0,0,0,.25)';
     } else if (value == 1) {
 		leftMapTicks[0].style.backgroundColor = 'rgba(255,255,255,1)';
         leftMapTicks[1].style.backgroundColor = 'rgba(0,0,0,.25)';
 		leftMapTicks[2].style.backgroundColor = 'rgba(0,0,0,.25)';
+        leftMapTicksSwapped[0].style.backgroundColor = 'rgba(255,255,255,1)';
+        leftMapTicksSwapped[1].style.backgroundColor = 'rgba(0,0,0,.25)';
+		leftMapTicksSwapped[2].style.backgroundColor = 'rgba(0,0,0,.25)';
     } else if (value == 2) {
         leftMapTicks[0].style.backgroundColor = 'rgba(255,255,255,1)';
         leftMapTicks[1].style.backgroundColor = 'rgba(255,255,255,1)';
 		leftMapTicks[2].style.backgroundColor = 'rgba(0,0,0,.25)';
+        leftMapTicksSwapped[0].style.backgroundColor = 'rgba(255,255,255,1)';
+        leftMapTicksSwapped[1].style.backgroundColor = 'rgba(255,255,255,1)';
+		leftMapTicksSwapped[2].style.backgroundColor = 'rgba(0,0,0,.25)';
     } else {
 		leftMapTicks[0].style.backgroundColor = 'rgba(255,255,255,1)';
         leftMapTicks[1].style.backgroundColor = 'rgba(255,255,255,1)';
 		leftMapTicks[2].style.backgroundColor = 'rgba(255,255,255,1)';
+        leftMapTicksSwapped[0].style.backgroundColor = 'rgba(255,255,255,1)';
+        leftMapTicksSwapped[1].style.backgroundColor = 'rgba(255,255,255,1)';
+		leftMapTicksSwapped[2].style.backgroundColor = 'rgba(255,255,255,1)';
 	}
 });
 
 team2SeriesScore.on('change', value => {
     var rightMapTicks = document.getElementById('right-map-ticks').children;
+    var rightMapTicksSwapped = document.getElementById('left-map-ticks-swapped').children;
 
     if (value == 0) {
         rightMapTicks[0].style.backgroundColor = 'rgba(0,0,0,.25)';
         rightMapTicks[1].style.backgroundColor = 'rgba(0,0,0,.25)';
 		rightMapTicks[2].style.backgroundColor = 'rgba(0,0,0,.25)';
+        rightMapTicksSwapped[0].style.backgroundColor = 'rgba(0,0,0,.25)';
+        rightMapTicksSwapped[1].style.backgroundColor = 'rgba(0,0,0,.25)';
+		rightMapTicksSwapped[2].style.backgroundColor = 'rgba(0,0,0,.25)';
     } else if (value == 1) {
 		rightMapTicks[0].style.backgroundColor = 'rgba(255,255,255,1)';
         rightMapTicks[1].style.backgroundColor = 'rgba(0,0,0,.25)';
 		rightMapTicks[2].style.backgroundColor = 'rgba(0,0,0,.25)';
+        rightMapTicksSwapped[0].style.backgroundColor = 'rgba(255,255,255,1)';
+        rightMapTicksSwapped[1].style.backgroundColor = 'rgba(0,0,0,.25)';
+		rightMapTicksSwapped[2].style.backgroundColor = 'rgba(0,0,0,.25)';
     } else if (value == 2) {
         rightMapTicks[0].style.backgroundColor = 'rgba(255,255,255,1)';
         rightMapTicks[1].style.backgroundColor = 'rgba(255,255,255,1)';
 		rightMapTicks[2].style.backgroundColor = 'rgba(0,0,0,.25)';
+        rightMapTicksSwapped[0].style.backgroundColor = 'rgba(255,255,255,1)';
+        rightMapTicksSwapped[1].style.backgroundColor = 'rgba(255,255,255,1)';
+		rightMapTicksSwapped[2].style.backgroundColor = 'rgba(0,0,0,.25)';
     } else {
 		rightMapTicks[0].style.backgroundColor = 'rgba(255,255,255,1)';
         rightMapTicks[1].style.backgroundColor = 'rgba(255,255,255,1)';
 		rightMapTicks[2].style.backgroundColor = 'rgba(255,255,255,1)';
+        rightMapTicksSwapped[0].style.backgroundColor = 'rgba(255,255,255,1)';
+        rightMapTicksSwapped[1].style.backgroundColor = 'rgba(255,255,255,1)';
+		rightMapTicksSwapped[2].style.backgroundColor = 'rgba(255,255,255,1)';
 	}
 });
 
