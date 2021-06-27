@@ -116,34 +116,12 @@ team2Logo.on('change', value => {
 
 teamSideSwapBoolean.on('change', value => {
     if (value == 0) {
-        document.getElementById('left-team-logo-swapped').style.display = 'none';
-        document.getElementById('right-team-logo-swapped').style.display = 'none';
-        document.getElementById('left-team-mode-swapped').style.display = 'none';
-        document.getElementById('right-team-mode-swapped').style.display = 'none';
-        document.getElementById('left-team-color-swapped').style.display = 'none';
-        document.getElementById('right-team-color-swapped').style.display = 'none';
-
-        document.getElementById('left-team-logo').style.display = 'initial';
-        document.getElementById('right-team-logo').style.display = 'initial';
-        document.getElementById('left-team-mode').style.display = 'initial';
-        document.getElementById('right-team-mode').style.display = 'initial';
-        document.getElementById('left-team-color').style.display = 'initial';
-        document.getElementById('right-team-color').style.display = 'initial';
+        document.getElementById('lower-third').style.display = 'initial';
+        document.getElementById('lower-third-swapped').style.display = 'none';
         return;
     }
-    document.getElementById('left-team-logo-swapped').style.display = 'initial';
-    document.getElementById('right-team-logo-swapped').style.display = 'initial';
-    document.getElementById('left-team-mode-swapped').style.display = 'initial';
-    document.getElementById('right-team-mode-swapped').style.display = 'initial';
-    document.getElementById('left-team-color-swapped').style.display = 'initial';
-    document.getElementById('right-team-color-swapped').style.display = 'initial';
-
-    document.getElementById('left-team-logo').style.display = 'none';
-    document.getElementById('right-team-logo').style.display = 'none';
-    document.getElementById('left-team-mode').style.display = 'none';
-    document.getElementById('right-team-mode').style.display = 'none';
-    document.getElementById('left-team-color').style.display = 'none';
-    document.getElementById('right-team-color').style.display = 'none';
+    document.getElementById('lower-third').style.display = 'none';
+    document.getElementById('lower-third-swapped').style.display = 'initial';
 });
 
 //more complicated Replicant change trackers

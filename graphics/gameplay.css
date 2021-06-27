@@ -19,7 +19,7 @@ body {
     text-transform: uppercase;
 }
 
-#header {
+#header, #header-swapped {
     position: absolute;
     top: 30px;
     height: 40px;
@@ -65,14 +65,14 @@ body {
     width: 100px;
 }
 
-#left-banner-info {
+#left-banner-info, #left-banner-info-swapped {
     position: absolute;
     display: flex;
     left: 10px;
     top: 4px;
 }
 
-#left-team-banner {
+#left-team-banner, #left-team-banner-swapped {
     position: absolute;
     display: flex;
     background: rgba(0, 0, 0, 0);
@@ -82,45 +82,45 @@ body {
     clip-path: polygon(0 0, 100% 0, 96% 100%, 0% 100%);
 }
 
-#left-team-name {
+#left-team-name, #left-team-name-swapped {
     margin-top: -1px;
     margin-right: 10px;
 }
 
-#left-team-logo {
+#left-team-logo, #left-team-logo-swapped {
     position: absolute;
     right: 25px;
 }
 
-#left-team-score-mode, #right-team-score-mode {
+#left-team-score-mode, #right-team-score-mode, #left-team-score-mode-swapped, #right-team-score-mode-swapped {
     display: flex;
     justify-content: space-evenly;
 }
 
-#left-team-score-mode {
+#left-team-score-mode, #left-team-score-mode-swapped {
     left: 760px;
     clip-path: polygon(14px 0, 100% 0, 100% 100%, 0% 100%);
 }
 
-#left-team-mode {
+#left-team-mode, #left-team-mode-swapped {
     margin-left: 10px;
 }
 
-#right-team-mode {
+#right-team-mode, #right-team-mode-swapped {
     margin-right: 10px;
 }
 
-#left-team-score, #right-team-score {
+#left-team-score, #right-team-score, #left-team-score-swapped, #right-team-score-swapped {
     font-size: 190%;
     margin-top: -3px;
 }
 
-#right-team-score-mode {
+#right-team-score-mode, #right-team-score-mode-swapped {
     right: 758px;
     clip-path: polygon(0 0, 86px 0, 100% 100%, 0% 100%);
 }
 
-#right-team-banner {
+#right-team-banner, #right-team-banner-swapped {
     position: absolute;
     display: flex;
     background: rgba(0, 0, 0, 0);
@@ -130,19 +130,19 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 4% 100%);
 }
 
-#right-banner-info {
+#right-banner-info, #right-banner-info-swapped {
     position: absolute;
     display: flex;
     right: 10px;
     top: 4px;
 }
 
-#right-team-name {
+#right-team-name, #right-team-name-swapped {
     margin-top: -1px;
     margin-left: 10px;
 }
 
-#right-team-logo {
+#right-team-logo, #right-team-logo-swapped {
     position: absolute;
     left: 25px;
 }
@@ -213,7 +213,7 @@ body {
 
 /* HUD Overlay Start */
 
-#hud-extra-header {
+#hud-extra-header, #hud-extra-header-swapped {
     position: absolute;
     top: -180px;
     display: flex;
@@ -221,7 +221,7 @@ body {
     transition: top 2s ease-in-out;
 }
 
-#left-team-extra, #right-team-extra {
+#left-team-extra, #right-team-extra, #left-team-extra-swapped, #right-team-extra-swapped {
     background-color: white;
     height: 150px;
     width: 565px;
@@ -251,37 +251,37 @@ body {
     align-items: center;
 }
 
-#left-team-color-extra, #right-team-color-extra {
+#left-team-color-extra, #right-team-color-extra, #left-team-color-extra-swapped, #right-team-color-extra-swapped {
     height: 180px;
     width: 230px;
     background-color: red;
     transition: 1s all ease-in-out;
 }
 
-#left-team-color-extra {
+#left-team-color-extra, #left-team-color-extra-swapped {
     clip-path: polygon(100% 0, 100% 100%, 7% 100%, 0 83%, 0 0);
 }
 
-#right-team-color-extra {
+#right-team-color-extra, #right-team-color-extra-swapped {
     clip-path: polygon(100% 0, 100% 83%, 93% 100%, 0 100%, 0 0);
 }
 
-#left-team-mode-extra, #right-team-mode-extra {
+#left-team-mode-extra, #right-team-mode-extra, #left-team-mode-extra-swapped, #right-team-mode-extra-swapped {
     font-size: 50px;
     transition: 1s all ease-in-out;
 }
 
-#left-team-mode-extra {
+#left-team-mode-extra, #left-team-mode-extra-swapped {
     position: absolute;
     left: 250px;
 }
 
-#right-team-mode-extra {
+#right-team-mode-extra, #right-team-mode-extra-swapped {
     position: absolute;
     right: 250px;
 }
 
-#left-team-logo-extra {
+#left-team-logo-extra, #left-team-logo-extra-swapped {
     position: absolute;
     top: 5px;
     left: 32px;
@@ -291,7 +291,7 @@ body {
 	object-fit: contain;
 }
 
-#right-team-logo-extra {
+#right-team-logo-extra, #right-team-logo-extra-swapped {
     position: absolute;
     top: 5px;
     right: 32px;
@@ -301,7 +301,7 @@ body {
 	object-fit: contain;
 }
 
-#right-team-logo-extra img, #left-team-logo-extra img {
+#right-team-logo-extra img, #left-team-logo-extra img, #right-team-logo-extra-swapped img, #left-team-logo-extra-swapped img {
 	object-fit: contain;
 }
 
@@ -340,7 +340,7 @@ body {
 	margin-left: 10px;
 }
 
-#left-team-score-extra, #right-team-score-extra {
+#left-team-score-extra, #right-team-score-extra, #left-team-score-extra-swapped, #right-team-score-extra-swapped {
     background-color: white;
     top: 0px;
     height: 180px;
@@ -351,11 +351,11 @@ body {
     font-size: 50px;
 }
 
-#left-team-score-extra {
+#left-team-score-extra, #left-team-score-extra-swapped {
     left: 795px;
 }
 
-#right-team-score-extra {
+#right-team-score-extra, #right-team-score-extra-swapped {
     right: 795px;
 }
 

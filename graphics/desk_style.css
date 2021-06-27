@@ -53,16 +53,22 @@ h1, h2{
     clip-path: polygon(49.75% 0%, 55.75% 0%, 50.25% 100%, 44.25% 100%);
 }
 
-#left-team, #right-team {
+#lower-third, #lower-third-swapped {
+    position: absolute;
+    top: 740px;
+    width: 1920px;
+}
+
+#left-team, #right-team, #left-team-swapped, #right-team-swapped {
     background-color: white;
     height: 150px;
     width: 565px;
     position: absolute;
-    top: 740px;
+    top: 0px;
 }
 
-#right-team {
-    right: 0;
+#right-team, #right-team-swapped {
+    right: 0px;
 }
 
 .team-name-container {
@@ -92,7 +98,7 @@ h1, h2{
     height: 180px;
     width: 305px;
     position: absolute;
-    top: 740px;
+    top: 0px;
     background-color: red;
     transition: 1s all ease-in-out;
 }
@@ -142,7 +148,7 @@ h1, h2{
 	object-fit: contain;
 }
 
-#middle-logo {
+.middle-logo {
     background-color: white;
     height: 180px;
     width: 180px;
@@ -154,7 +160,7 @@ h1, h2{
     align-items: center;
 }
 
-#middle-logo img {
+.middle-logo img {
     height: auto;
     width: 80%;
 	object-fit: contain;

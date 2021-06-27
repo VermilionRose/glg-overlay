@@ -37,6 +37,9 @@ const team2SeriesScore = nodecg.Replicant('team2SeriesScore');
 const team1MapScore = nodecg.Replicant('team1MapScore');
 const team2MapScore = nodecg.Replicant('team2MapScore');
 
+//team side swap on the controller
+const teamSideSwapBoolean = nodecg.Replicant('TeamSideSwapBoolean');
+
 //map picks (ascent, bind, breeze, haven, icebox, split)
 const map1 = nodecg.Replicant('map1');
 const map2 = nodecg.Replicant('map2');
@@ -81,58 +84,113 @@ casterRight.on('change', value => {
 
 team1Acronym.on('change', value => {
     document.getElementById('left-team-name-extra').innerHTML = value;
+    document.getElementById('right-team-name-extra-swapped').innerHTML = value;
 });
 
 team2Acronym.on('change', value => {
     document.getElementById('right-team-name-extra').innerHTML = value;
+    document.getElementById('left-team-name-extra-swapped').innerHTML = value;
 });
 
 team1Name.on('change', value => {
     document.getElementById('left-team-name').innerHTML = value;
+    document.getElementById('right-team-name-swapped').innerHTML = value;
 });
 
 team2Name.on('change', value => {
     document.getElementById('right-team-name').innerHTML = value;
+    document.getElementById('left-team-name-swapped').innerHTML = value;
 });
 
 team1Color.on('change', value => {
     document.getElementById('left-team-banner').style.backgroundColor = value;
     document.getElementById('left-team-score-mode').style.color = value;
+
+    document.getElementById('right-team-banner-swapped').style.backgroundColor = value;
+    document.getElementById('right-team-score-mode-swapped').style.color = value;
+
     document.getElementById('left-team-color-extra').style.backgroundColor = value;
     document.getElementById('left-team-mode-extra').style.color = value;
     document.getElementById('left-team-score-extra').style.color = value;
+
+    document.getElementById('right-team-color-extra-swapped').style.backgroundColor = value;
+    document.getElementById('right-team-mode-extra-swapped').style.color = value;
+    document.getElementById('right-team-score-extra-swapped').style.color = value;
 });
 
 team2Color.on('change', value => {
     document.getElementById('right-team-banner').style.backgroundColor = value;
     document.getElementById('right-team-score-mode').style.color = value;
+
+    document.getElementById('left-team-banner-swapped').style.backgroundColor = value;
+    document.getElementById('left-team-score-mode-swapped').style.color = value;
+
     document.getElementById('right-team-color-extra').style.backgroundColor = value;
     document.getElementById('right-team-mode-extra').style.color = value;
     document.getElementById('right-team-score-extra').style.color = value;
+
+    document.getElementById('left-team-color-extra-swapped').style.backgroundColor = value;
+    document.getElementById('left-team-mode-extra-swapped').style.color = value;
+    document.getElementById('left-team-score-extra-swapped').style.color = value;
 });
 
 team1Logo.on('change', value => {
     document.getElementById('left-team-logo').src = value;
+    document.getElementById('right-team-logo-swapped').src = value;
+
     document.getElementById('left-team-logo-extra').src = value;
+    document.getElementById('right-team-logo-extra-swapped').src = value;
 });
 
 team2Logo.on('change', value => {
     document.getElementById('right-team-logo').src = value;
+    document.getElementById('left-team-logo-swapped').src = value;
+
     document.getElementById('right-team-logo-extra').src = value;
+    document.getElementById('left-team-logo-extra-swapped').src = value;
 });
 
 sideSwitch.on('change', value => {
     if (value == 0) {
         document.getElementById('left-team-mode').innerHTML = 'DEF';
         document.getElementById('right-team-mode').innerHTML = 'ATK';
+
+        document.getElementById('left-team-mode-swapped').innerHTML = 'DEF';
+        document.getElementById('right-team-mode-swapped').innerHTML = 'ATK';
+
         document.getElementById('left-team-mode-extra').innerHTML = 'DEFENSE';
         document.getElementById('right-team-mode-extra').innerHTML = 'ATTACK';
+
+        document.getElementById('left-team-mode-extra-swapped').innerHTML = 'DEFENSE';
+        document.getElementById('right-team-mode-extra-swapped').innerHTML = 'ATTACK';
         return;
     }
     document.getElementById('left-team-mode').innerHTML = 'ATK';
     document.getElementById('right-team-mode').innerHTML = 'DEF';
+
+    document.getElementById('left-team-mode-swapped').innerHTML = 'ATK';
+    document.getElementById('right-team-mode-swapped').innerHTML = 'DEF';
+
     document.getElementById('left-team-mode-extra').innerHTML = 'ATTACK';
-        document.getElementById('right-team-mode-extra').innerHTML = 'DEFENSE';
+    document.getElementById('right-team-mode-extra').innerHTML = 'DEFENSE';
+
+    document.getElementById('left-team-mode-extra-swapped').innerHTML = 'ATTACK';
+    document.getElementById('right-team-mode-extra-swapped').innerHTML = 'DEFENSE';
+});
+
+teamSideSwapBoolean.on('change', value => {
+    if (value == 0) {
+        document.getElementById('header').style.display = "initial";
+        document.getElementById('header-swapped').style.display = "none";
+        document.getElementById('hud-extra-header').style.display = "flex";
+        document.getElementById('hud-extra-header-swapped').style.display = "none";
+        return;
+    }
+
+    document.getElementById('header').style.display = "none";
+    document.getElementById('header-swapped').style.display = "initial";
+    document.getElementById('hud-extra-header').style.display = "none";
+    document.getElementById('hud-extra-header-swapped').style.display = "flex";
 });
 
 //more complicated Replicant change trackers
@@ -140,9 +198,13 @@ sideSwitch.on('change', value => {
 mapCount.on('change', value => {
     var leftMapTicks = document.getElementById('left-map-ticks').children;
     var rightMapTicks = document.getElementById('right-map-ticks').children;
+    var leftMapTicksSwapped = document.getElementById('left-map-ticks-swapped').children;
+    var rightMapTicksSwapped = document.getElementById('right-map-ticks-swapped').children;
 
     var leftMapTicksExtra = document.getElementById('left-map-ticks-extra').children;
     var rightMapTicksExtra = document.getElementById('right-map-ticks-extra').children;
+    var leftMapTicksExtraSwapped = document.getElementById('left-map-ticks-extra-swapped').children;
+    var rightMapTicksExtraSwapped = document.getElementById('right-map-ticks-extra-swapped').children;
 
     var mapList = document.getElementById('maps').children;
     
@@ -153,6 +215,13 @@ mapCount.on('change', value => {
         rightMapTicks[0].style.display = 'flex';
 		rightMapTicks[1].style.display = 'flex';
 		rightMapTicks[2].style.display = 'none';
+
+        leftMapTicksSwapped[0].style.display = 'flex';
+		leftMapTicksSwapped[1].style.display = 'flex';
+        leftMapTicksSwapped[2].style.display = 'none';
+        rightMapTicksSwapped[0].style.display = 'flex';
+		rightMapTicksSwapped[1].style.display = 'flex';
+		rightMapTicksSwapped[2].style.display = 'none';
 		
         leftMapTicksExtra[0].style.display = 'flex';
 		leftMapTicksExtra[1].style.display = 'flex';
@@ -160,6 +229,13 @@ mapCount.on('change', value => {
         rightMapTicksExtra[0].style.display = 'flex';
 		rightMapTicksExtra[1].style.display = 'flex';
 		rightMapTicksExtra[2].style.display = 'none';
+
+        leftMapTicksExtraSwapped[0].style.display = 'flex';
+		leftMapTicksExtraSwapped[1].style.display = 'flex';
+        leftMapTicksExtraSwapped[2].style.display = 'none';
+        rightMapTicksExtraSwapped[0].style.display = 'flex';
+		rightMapTicksExtraSwapped[1].style.display = 'flex';
+		rightMapTicksExtraSwapped[2].style.display = 'none';
 
         document.getElementById('left-map-ticks').style.justifyContent = 'space-evenly';
         document.getElementById('right-map-ticks').style.justifyContent = 'space-evenly';
@@ -179,6 +255,13 @@ mapCount.on('change', value => {
         rightMapTicks[0].style.display = 'flex';
 		rightMapTicks[1].style.display = 'flex';
 		rightMapTicks[2].style.display = 'flex';
+
+        leftMapTicksSwapped[0].style.display = 'flex';
+		leftMapTicksSwapped[1].style.display = 'flex';
+        leftMapTicksSwapped[2].style.display = 'flex';
+        rightMapTicksSwapped[0].style.display = 'flex';
+		rightMapTicksSwapped[1].style.display = 'flex';
+		rightMapTicksSwapped[2].style.display = 'flex';
 		
         leftMapTicksExtra[0].style.display = 'flex';
 		leftMapTicksExtra[1].style.display = 'flex';
@@ -186,6 +269,13 @@ mapCount.on('change', value => {
         rightMapTicksExtra[0].style.display = 'flex';
 		rightMapTicksExtra[1].style.display = 'flex';
 		rightMapTicksExtra[2].style.display = 'flex';
+
+        leftMapTicksExtraSwapped[0].style.display = 'flex';
+		leftMapTicksExtraSwapped[1].style.display = 'flex';
+        leftMapTicksExtraSwapped[2].style.display = 'flex';
+        rightMapTicksExtraSwapped[0].style.display = 'flex';
+		rightMapTicksExtraSwapped[1].style.display = 'flex';
+		rightMapTicksExtraSwapped[2].style.display = 'flex';
 
         document.getElementById('left-map-ticks').style.justifyContent = 'space-evenly';
         document.getElementById('right-map-ticks').style.justifyContent = 'space-evenly';
@@ -204,6 +294,13 @@ mapCount.on('change', value => {
 	rightMapTicks[0].style.display = 'flex';
 	rightMapTicks[1].style.display = 'none';
 	rightMapTicks[2].style.display = 'none';
+
+    leftMapTicksSwapped[0].style.display = 'flex';
+	leftMapTicksSwapped[1].style.display = 'none';
+	leftMapTicksSwapped[2].style.display = 'none';
+	rightMapTicksSwapped[0].style.display = 'flex';
+	rightMapTicksSwapped[1].style.display = 'none';
+	rightMapTicksSwapped[2].style.display = 'none';
 	
 	leftMapTicksExtra[0].style.display = 'flex';
 	leftMapTicksExtra[1].style.display = 'none';
@@ -211,6 +308,13 @@ mapCount.on('change', value => {
 	rightMapTicksExtra[0].style.display = 'flex';
 	rightMapTicksExtra[1].style.display = 'none';
 	rightMapTicksExtra[2].style.display = 'none';
+
+    leftMapTicksExtraSwapped[0].style.display = 'flex';
+	leftMapTicksExtraSwapped[1].style.display = 'none';
+	leftMapTicksExtraSwapped[2].style.display = 'none';
+	rightMapTicksExtraSwapped[0].style.display = 'flex';
+	rightMapTicksExtraSwapped[1].style.display = 'none';
+	rightMapTicksExtraSwapped[2].style.display = 'none';
 
 	document.getElementById('left-map-ticks').style.justifyContent = 'space-evenly';
 	document.getElementById('right-map-ticks').style.justifyContent = 'space-evenly';
@@ -228,89 +332,162 @@ hostLogo.on('change', value => {
 
 team1SeriesScore.on('change', value => {
     var leftMapTicks = document.getElementById('left-map-ticks').children;
+    var leftMapTicksSwapped = document.getElementById('right-map-ticks-swapped').children;
     var leftMapTicksExtra = document.getElementById('left-map-ticks-extra').children;
+    var leftMapTicksExtraSwapped = document.getElementById('right-map-ticks-extra-swapped').children;
 
     if (value == 0) {
         leftMapTicks[0].style.backgroundColor = 'rgba(0,0,0,.25)';
         leftMapTicks[1].style.backgroundColor = 'rgba(0,0,0,.25)';
 		leftMapTicks[2].style.backgroundColor = 'rgba(0,0,0,.25)';
+
+        leftMapTicksSwapped[0].style.backgroundColor = 'rgba(0,0,0,.25)';
+        leftMapTicksSwapped[1].style.backgroundColor = 'rgba(0,0,0,.25)';
+		leftMapTicksSwapped[2].style.backgroundColor = 'rgba(0,0,0,.25)';
 		
 		leftMapTicksExtra[0].style.backgroundColor = 'rgba(0,0,0,.25)';
         leftMapTicksExtra[1].style.backgroundColor = 'rgba(0,0,0,.25)';
 		leftMapTicksExtra[2].style.backgroundColor = 'rgba(0,0,0,.25)';
+
+        leftMapTicksExtraSwapped[0].style.backgroundColor = 'rgba(0,0,0,.25)';
+        leftMapTicksExtraSwapped[1].style.backgroundColor = 'rgba(0,0,0,.25)';
+		leftMapTicksExtraSwapped[2].style.backgroundColor = 'rgba(0,0,0,.25)';
     } else if (value == 1) {
 		leftMapTicks[0].style.backgroundColor = 'rgba(255,255,255,1)';
         leftMapTicks[1].style.backgroundColor = 'rgba(0,0,0,.25)';
 		leftMapTicks[2].style.backgroundColor = 'rgba(0,0,0,.25)';
+
+        leftMapTicksSwapped[0].style.backgroundColor = 'rgba(255,255,255,1)';
+        leftMapTicksSwapped[1].style.backgroundColor = 'rgba(0,0,0,.25)';
+		leftMapTicksSwapped[2].style.backgroundColor = 'rgba(0,0,0,.25)';
 		
 		leftMapTicksExtra[0].style.backgroundColor = 'rgba(255,255,255,1)';
         leftMapTicksExtra[1].style.backgroundColor = 'rgba(0,0,0,.25)';
 		leftMapTicksExtra[2].style.backgroundColor = 'rgba(0,0,0,.25)';
+
+        leftMapTicksExtraSwapped[0].style.backgroundColor = 'rgba(255,255,255,1)';
+        leftMapTicksExtraSwapped[1].style.backgroundColor = 'rgba(0,0,0,.25)';
+		leftMapTicksExtraSwapped[2].style.backgroundColor = 'rgba(0,0,0,.25)';
     } else if (value == 2) {
         leftMapTicks[0].style.backgroundColor = 'rgba(255,255,255,1)';
         leftMapTicks[1].style.backgroundColor = 'rgba(255,255,255,1)';
 		leftMapTicks[2].style.backgroundColor = 'rgba(0,0,0,.25)';
+
+        leftMapTicksSwapped[0].style.backgroundColor = 'rgba(255,255,255,1)';
+        leftMapTicksSwapped[1].style.backgroundColor = 'rgba(255,255,255,1)';
+		leftMapTicksSwapped[2].style.backgroundColor = 'rgba(0,0,0,.25)';
 		
 		leftMapTicksExtra[0].style.backgroundColor = 'rgba(255,255,255,1)';
         leftMapTicksExtra[1].style.backgroundColor = 'rgba(255,255,255,1)';
 		leftMapTicksExtra[2].style.backgroundColor = 'rgba(0,0,0,.25)';
+
+        leftMapTicksExtraSwapped[0].style.backgroundColor = 'rgba(255,255,255,1)';
+        leftMapTicksExtraSwapped[1].style.backgroundColor = 'rgba(255,255,255,1)';
+		leftMapTicksExtraSwapped[2].style.backgroundColor = 'rgba(0,0,0,.25)';
     } else {
 		leftMapTicks[0].style.backgroundColor = 'rgba(255,255,255,1)';
         leftMapTicks[1].style.backgroundColor = 'rgba(255,255,255,1)';
 		leftMapTicks[2].style.backgroundColor = 'rgba(255,255,255,1)';
+
+        leftMapTicksSwapped[0].style.backgroundColor = 'rgba(255,255,255,1)';
+        leftMapTicksSwapped[1].style.backgroundColor = 'rgba(255,255,255,1)';
+		leftMapTicksSwapped[2].style.backgroundColor = 'rgba(255,255,255,1)';
 		
 		leftMapTicksExtra[0].style.backgroundColor = 'rgba(255,255,255,1)';
         leftMapTicksExtra[1].style.backgroundColor = 'rgba(255,255,255,1)';
 		leftMapTicksExtra[2].style.backgroundColor = 'rgba(255,255,255,1)';
+
+        leftMapTicksExtraSwapped[0].style.backgroundColor = 'rgba(255,255,255,1)';
+        leftMapTicksExtraSwapped[1].style.backgroundColor = 'rgba(255,255,255,1)';
+		leftMapTicksExtraSwapped[2].style.backgroundColor = 'rgba(255,255,255,1)';
 	}
 });
 
 team2SeriesScore.on('change', value => {
     var rightMapTicks = document.getElementById('right-map-ticks').children;
+    var rightMapTicksSwapped = document.getElementById('left-map-ticks-swapped').children;
     var rightMapTicksExtra = document.getElementById('right-map-ticks-extra').children;
+    var rightMapTicksExtraSwapped = document.getElementById('left-map-ticks-extra-swapped').children;
 
     if (value == 0) {
         rightMapTicks[0].style.backgroundColor = 'rgba(0,0,0,.25)';
         rightMapTicks[1].style.backgroundColor = 'rgba(0,0,0,.25)';
 		rightMapTicks[2].style.backgroundColor = 'rgba(0,0,0,.25)';
+
+        rightMapTicksSwapped[0].style.backgroundColor = 'rgba(0,0,0,.25)';
+        rightMapTicksSwapped[1].style.backgroundColor = 'rgba(0,0,0,.25)';
+		rightMapTicksSwapped[2].style.backgroundColor = 'rgba(0,0,0,.25)';
 		
 		rightMapTicksExtra[0].style.backgroundColor = 'rgba(0,0,0,.25)';
         rightMapTicksExtra[1].style.backgroundColor = 'rgba(0,0,0,.25)';
 		rightMapTicksExtra[2].style.backgroundColor = 'rgba(0,0,0,.25)';
+
+        rightMapTicksExtraSwapped[0].style.backgroundColor = 'rgba(0,0,0,.25)';
+        rightMapTicksExtraSwapped[1].style.backgroundColor = 'rgba(0,0,0,.25)';
+		rightMapTicksExtraSwapped[2].style.backgroundColor = 'rgba(0,0,0,.25)';
     } else if (value == 1) {
 		rightMapTicks[0].style.backgroundColor = 'rgba(255,255,255,1)';
         rightMapTicks[1].style.backgroundColor = 'rgba(0,0,0,.25)';
 		rightMapTicks[2].style.backgroundColor = 'rgba(0,0,0,.25)';
 
+        rightMapTicksSwapped[0].style.backgroundColor = 'rgba(255,255,255,1)';
+        rightMapTicksSwapped[1].style.backgroundColor = 'rgba(0,0,0,.25)';
+		rightMapTicksSwapped[2].style.backgroundColor = 'rgba(0,0,0,.25)';
+
 		rightMapTicksExtra[0].style.backgroundColor = 'rgba(255,255,255,1)';
         rightMapTicksExtra[1].style.backgroundColor = 'rgba(0,0,0,.25)';
 		rightMapTicksExtra[2].style.backgroundColor = 'rgba(0,0,0,.25)';
+
+        rightMapTicksExtraSwapped[0].style.backgroundColor = 'rgba(255,255,255,1)';
+        rightMapTicksExtraSwapped[1].style.backgroundColor = 'rgba(0,0,0,.25)';
+		rightMapTicksExtraSwapped[2].style.backgroundColor = 'rgba(0,0,0,.25)';
     } else if (value == 2) {
         rightMapTicks[0].style.backgroundColor = 'rgba(255,255,255,1)';
         rightMapTicks[1].style.backgroundColor = 'rgba(255,255,255,1)';
 		rightMapTicks[2].style.backgroundColor = 'rgba(0,0,0,.25)';
+
+        rightMapTicksSwapped[0].style.backgroundColor = 'rgba(255,255,255,1)';
+        rightMapTicksSwapped[1].style.backgroundColor = 'rgba(255,255,255,1)';
+		rightMapTicksSwapped[2].style.backgroundColor = 'rgba(0,0,0,.25)';
+
 		rightMapTicksExtra[0].style.backgroundColor = 'rgba(255,255,255,1)';
         rightMapTicksExtra[1].style.backgroundColor = 'rgba(255,255,255,1)';
 		rightMapTicksExtra[2].style.backgroundColor = 'rgba(0,0,0,.25)';
+
+        rightMapTicksExtraSwapped[0].style.backgroundColor = 'rgba(255,255,255,1)';
+        rightMapTicksExtraSwapped[1].style.backgroundColor = 'rgba(255,255,255,1)';
+		rightMapTicksExtraSwapped[2].style.backgroundColor = 'rgba(0,0,0,.25)';
     } else {
 		rightMapTicks[0].style.backgroundColor = 'rgba(255,255,255,1)';
         rightMapTicks[1].style.backgroundColor = 'rgba(255,255,255,1)';
 		rightMapTicks[2].style.backgroundColor = 'rgba(255,255,255,1)';
+
+        rightMapTicksSwapped[0].style.backgroundColor = 'rgba(255,255,255,1)';
+        rightMapTicksSwapped[1].style.backgroundColor = 'rgba(255,255,255,1)';
+		rightMapTicksSwapped[2].style.backgroundColor = 'rgba(255,255,255,1)';
 		
 		rightMapTicksExtra[0].style.backgroundColor = 'rgba(255,255,255,1)';
         rightMapTicksExtra[1].style.backgroundColor = 'rgba(255,255,255,1)';
 		rightMapTicksExtra[2].style.backgroundColor = 'rgba(255,255,255,1)';
+
+        rightMapTicksExtraSwapped[0].style.backgroundColor = 'rgba(255,255,255,1)';
+        rightMapTicksExtraSwapped[1].style.backgroundColor = 'rgba(255,255,255,1)';
+		rightMapTicksExtraSwapped[2].style.backgroundColor = 'rgba(255,255,255,1)';
 	}
 });
 
 team1MapScore.on('change', value => {
     document.getElementById('left-team-score').innerHTML = value;
+    document.getElementById('right-team-score-swapped').innerHTML = value;
     document.getElementById('left-team-score-extra').innerHTML = value;
+    document.getElementById('right-team-score-extra-swapped').innerHTML = value;
 });
 
 team2MapScore.on('change', value => {
     document.getElementById('right-team-score').innerHTML = value;
+    document.getElementById('left-team-score-swapped').innerHTML = value;
     document.getElementById('right-team-score-extra').innerHTML = value;
+    document.getElementById('left-team-score-extra-swapped').innerHTML = value;
 });
 
 
@@ -472,9 +649,11 @@ map5Score.on('change', value => {
 extraBoolean.on('change', value => {
     if (extraBoolean.value == 'false') {
         document.getElementById('hud-extra-header').style.top = '-180px';
+        document.getElementById('hud-extra-header-swapped').style.top = '-180px';
         document.getElementById('maps').style.bottom = '-150px';
         return;
     }
     document.getElementById('hud-extra-header').style.top = '0px';
+    document.getElementById('hud-extra-header-swapped').style.top = '0px';
     document.getElementById('maps').style.bottom = '0px';
 });
