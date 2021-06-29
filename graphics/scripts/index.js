@@ -127,6 +127,7 @@ teamSideSwapBoolean.on('change', value => {
 //more complicated Replicant change trackers
 
 //helper function
+//takes in an 'element' and 'elementSwapped' as a var or let rather than a String
 function setIndexedStyleWithSwap(element, elementSwapped, startIndex, endIndex, property, value) {
     for (let i = startIndex; i <= endIndex; i++) {
         element[i].style[property] = value;

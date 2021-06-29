@@ -106,5 +106,12 @@
             }
         }, 1000);
     });
+
+    //event-name change
+    const eventName = nodecg.Replicant('eventName');
+    
+    eventName.on('change', value => {
+        document.getElementById('event-name').innerHTML = value;
+    });
 </script>
 </html>
