@@ -24,7 +24,7 @@ Within the NodeCG directory, this package goes within the "bundles" directory
   - "typefaces" contains all the typefaces in ttf or otf format used in the package
   - ALL OTHER FILES WITHIN ARE THE HTML AND CSS COMPONENTS OF GENERATING THE GRAPHICS
 
-**Editing Desk Ads**
+**Editing Desk Ads** <br>
 The bare mininum ads shown on the *desk* graphics do not reflect any sponsors or special events commands
 
 - To edit desk ads, they must first be generated outside the package in a photo editor of choice and exported as a png to the "graphics" > "deskads" directory
@@ -32,6 +32,6 @@ The bare mininum ads shown on the *desk* graphics do not reflect any sponsors or
 - Locate the images of class "slideshow" and change or add any desk ads as needed
 
 
-**Licensing**
+**Licensing** <br>
 Licensed for the personal use of Jacob Pochron <br>
 Licensed for the commercial use of GLG for authorized users
