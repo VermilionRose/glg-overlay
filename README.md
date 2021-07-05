@@ -2,15 +2,15 @@ glg-overlay is a [NodeCG](http://github.com/nodecg/nodecg) bundle.
 It works with NodeCG versions which satisfy this [semver](https://docs.npmjs.com/getting-started/semantic-versioning) range: `^1.1.1`
 You will need to have an appropriate version of NodeCG installed to use it.
 
-**Installing NodeCG**
-This package requires NodeCG and npm to use
-NodeCG should be set-up in a familiar directory for ease of use
+**Installing NodeCG** <br>
+This package requires NodeCG and npm to use <br>
+NodeCG should be set-up in a familiar directory for ease of use <br>
 https://www.nodecg.dev/docs/installing
 
-**Downloading and extracting the bundle**
+**Downloading and extracting the bundle** <br>
 Within the NodeCG directory, this package goes within the "bundles" directory
 
-**Bundle Layout**
+**Bundle Layout** <br>
 *Ignore any non-directory file within the bundle when making edits*
 
 - the "dashboard" directory contains the Controller files, layout, design, and backend used in the localhost browser
