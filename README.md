@@ -11,7 +11,6 @@ https://www.nodecg.dev/docs/installing
 Within the NodeCG directory, this package goes within the "bundles" directory
 
 **Bundle Layout** <br>
-*Ignore any non-directory file within the bundle when making edits*
 
 - the "dashboard" directory contains the Controller files, layout, design, and backend used in the localhost browser
 - the "extension" directory contains the index.js file containing all the backend const and Replicants used in the package
@@ -22,7 +21,8 @@ Within the NodeCG directory, this package goes within the "bundles" directory
   - "masks" contains the alpha masks used to constrain the team color boxes containing names and series win tick marks on the *desk* graphic
   - "scripts" contains all the scripts, including all the backend, in the package. It also contains the autofit and animation script
   - "typefaces" contains all the typefaces in ttf or otf format used in the package
-  - ALL OTHER FILES WITHIN ARE THE HTML AND CSS COMPONENTS OF GENERATING THE GRAPHICS
+  - all other files found within this directory are html and css files for generating the character graphics
+- all files found within the glg-overlay directory should not be edited
 
 **Editing Desk Ads** <br>
 The bare mininum ads shown on the *desk* graphics do not reflect any sponsors or special events commands
