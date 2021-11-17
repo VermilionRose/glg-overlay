@@ -216,7 +216,7 @@ body {
 #hud-extra-header, #hud-extra-header-swapped {
     position: absolute;
     top: -180px;
-    display: flex;
+    display: none;
     flex-direction: row;
     transition: top 2s ease-in-out;
 }
