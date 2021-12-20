@@ -31,7 +31,7 @@ h1 {
     font-family: Boldine;
     font-size: 300px;
     font-weight: lighter;
-    color: white;
+    color: #00B050;
     opacity: .3;
     right: 400px;
     top: 700px;
@@ -39,7 +39,7 @@ h1 {
 
 h2 {
     font-family: Din Pro;
-    color: white;
+    color: #FF0000;
     font-size: 65px;
     font-weight: lighter;
     letter-spacing: 10px;

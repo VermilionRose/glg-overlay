@@ -67,6 +67,14 @@
 		    "width": 3,
         "fullbleed": false,
         "headerColor": "#525F78"
+      },
+      {
+        "name": "MVP",
+        "title": "MVP",
+        "file": "MVP.html",
+		    "width": 3,
+        "fullbleed": false,
+        "headerColor": "#525F78"
       }
     ],
     "graphics": [
@@ -87,6 +95,11 @@
       },
       {
         "file": "intermission.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "mvp.html",
         "width": 1920,
         "height": 1080
       }

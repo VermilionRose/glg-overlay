@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVP</title>
+    <link rel="stylesheet" href="mvp.css">
+</head>
+<body>
+    <div>
+        <img id="background" src="images/mvp.png" alt="mvp background">
+    </div>
+
+    <div id="mvp-name">
+        <h1>INSERT MVP NAME HERE</h1>
+    </div>
+
+    <div class="team-pick" id="team-pick-1">
+        <h1>TEAM PICK</h1>
+    </div>
+    <div class="team-pick" id="team-pick-2">
+        <h1>TEAM PICK</h1>
+    </div>
+    <div class="team-pick" id="team-pick-3">
+        <h1>TEAM PICK</h1>
+    </div>
+
+    <div class="team-pick-logo" id="team-pick-logo-1">
+        <img src="">
+    </div>
+    <div class="team-pick-logo" id="team-pick-logo-2">
+        <img src="">
+    </div>
+    <div class="team-pick-logo" id="team-pick-logo-3">
+        <img src="">
+    </div>
+
+    <div class="map" id="map1">
+        <h1 class="mapName" id="map1Name">MAP NAME</h1>
+        <h2 class="mapScore" id="map1Score">MAP SCORE</h2>
+        <h1 class="KDAtext">KDA</h1>
+        <h1 class="KDA" id="KDA2">0/0/0</h1>
+    </div>
+    <div class="map" id="map2">
+        <h1 class="mapName" id="map2Name">MAP NAME</h1>
+        <h2 class="mapScore" id="map2Score">MAP SCORE</h2>
+        <h1 class="KDAtext">KDA</h1>
+        <h1 class="KDA" id="KDA1">0/0/0</h1>
+    </div>
+    <div class="map" id="map3">
+        <h1 class="mapName" id="map3Name">MAP NAME</h1>
+        <h2 class="mapScore" id="map3Score">MAP SCORE</h2>
+        <h1 class="KDAtext">KDA</h1>
+        <h1 class="KDA" id="KDA3">0/0/0</h1>
+    </div>
+    <div class="map gradient" id="map1-gradient"></div>
+    <div class="map gradient" id="map2-gradient"></div>
+    <div class="map gradient" id="map3-gradient"></div>
+
+    <img id="sponsor-logo" src="">
+</body>
+<script>
+    //Replicants
+    const mvpName = nodecg.Replicant('MVPName');
+
+    const map1PickedByTeam = nodecg.Replicant('Map1PickedByTeam');
+    const map2PickedByTeam = nodecg.Replicant('Map2PickedByTeam');
+    const map3PickedByTeam = nodecg.Replicant('Map3PickedByTeam');
+
+    const team1Name = nodecg.Replicant('team1Name');
+    const team2Name = nodecg.Replicant('team2Name');
+    const team1Acronym = nodecg.Replicant('team1Acronym');
+    const team2Acronym = nodecg.Replicant('team2Acronym');
+
+    const team1Logo = nodecg.Replicant('team1Logo');
+	const team2Logo = nodecg.Replicant('team2Logo');
+
+    mvpName.on('change', value => {
+        document.getElementById("mvp-name").innerHTML = value;
+	});
+
+    map1PickedByTeam.on('change', value => {
+        if (value == 'team1Name') {
+            team1Acronym.on('change', value => {document.getElementById('team-pick-1').children[0].innerText = value;});
+            team1Logo.on('change', value => {document.getElementById('team-pick-logo-1').children[0].src = value});
+            return;
+        }
+        if (value == 'team2Name') {
+            team2Acronym.on('change', value => {document.getElementById('team-pick-1').children[0].innerText = value;});
+            team2Logo.on('change', value => {document.getElementById('team-pick-logo-1').children[0].src = value});
+            return;
+        }
+        document.getElementById('team-pick-3').children[0].innerHTML = 'N/A';
+    });
+
+    map2PickedByTeam.on('change', value => {
+        if (value == 'team1Name') {
+            team1Acronym.on('change', value => {document.getElementById('team-pick-2').children[0].innerText = value;});
+            team1Logo.on('change', value => {document.getElementById('team-pick-logo-2').children[0].src = value});
+            return;
+        }
+        if (value == 'team2Name') {
+            team2Acronym.on('change', value => {document.getElementById('team-pick-2').children[0].innerText = value;});
+            team2Logo.on('change', value => {document.getElementById('team-pick-logo-2').children[0].src = value});
+            return;
+        }
+        document.getElementById('team-pick-3').children[0].innerHTML = 'N/A';
+    });
+
+    map3PickedByTeam.on('change', value => {
+        document.getElementById('team-pick-logo-3').children[0].style.visibility = 'visible';
+        if (value == 'team1Name') {
+            team1Acronym.on('change', value => {document.getElementById('team-pick-3').children[0].innerText = value;});
+            team1Logo.on('change', value => {document.getElementById('team-pick-logo-3').children[0].src = value});
+            return;
+        }
+        if (value == 'team2Name') {
+            team2Acronym.on('change', value => {document.getElementById('team-pick-3').children[0].innerText = value;});
+            team2Logo.on('change', value => {document.getElementById('team-pick-logo-3').children[0].src = value});
+            return;
+        }
+        document.getElementById('team-pick-3').children[0].innerHTML = 'N/A';
+        document.getElementById('team-pick-logo-3').children[0].style.visibility = 'hidden';
+    });
+
+    const map1 = nodecg.Replicant('map1');
+	const map2 = nodecg.Replicant('map2');
+	const map3 = nodecg.Replicant('map3');
+
+    map1.on('change', value => {
+        document.getElementById('map1').style.backgroundImage = 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,255,237,0) 25%, rgba(0,109,101,0) 75%, rgba(0,0,0,1) 100%), url(maps/' + value + '.png)';
+        document.getElementById('map1Name').innerHTML = value;
+    });
+
+    map2.on('change', value => {
+        document.getElementById('map2').style.backgroundImage = 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,255,237,0) 25%, rgba(0,109,101,0) 75%, rgba(0,0,0,1) 100%), url(maps/' + value + '.png)';
+        document.getElementById('map2Name').innerHTML = value;
+    });
+
+    map3.on('change', value => {
+        document.getElementById('map3').style.backgroundImage = 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,255,237,0) 25%, rgba(0,109,101,0) 75%, rgba(0,0,0,1) 100%), url(maps/' + value + '.png)';
+        document.getElementById('map3Name').innerHTML = value;
+    });
+
+    const map1Score = nodecg.Replicant('map1Score');
+	const map2Score = nodecg.Replicant('map2Score');
+	const map3Score = nodecg.Replicant('map3Score');
+
+    map1Score.on('change', value => {
+        document.getElementById('map1Score').innerText = value;
+    });
+
+    map2Score.on('change', value => {
+        document.getElementById('map2Score').innerText = value;
+    });
+
+    map3Score.on('change', value => {
+        document.getElementById('map3Score').innerText = value;
+    });
+
+    const mvpMap1KDA = nodecg.Replicant('MVPMap1KDA');
+    const mvpMap2KDA = nodecg.Replicant('MVPMap2KDA');
+    const mvpMap3KDA = nodecg.Replicant('MVPMap3KDA');
+
+    mvpMap1KDA.on('change', value => {
+        document.getElementById('KDA1').innerText = value;
+    });
+    mvpMap2KDA.on('change', value => {
+        document.getElementById('KDA2').innerText = value;
+    });
+    mvpMap3KDA.on('change', value => {
+        document.getElementById('KDA3').innerText = value;
+    });
+
+    const sponsorLogo = nodecg.Replicant('sponsorLogo');
+    sponsorLogo.on('change', value => {
+        document.getElementById('sponsor-logo').src = '../../../assets/glg-overlay/logos/' + value + '.png';
+    });
+
+</script>
+</html>

@@ -62,4 +62,13 @@ module.exports = function (nodecg) {
 	nodecg.Replicant('tip1Info', {defaultValue: 'Tip 1 Info'});
 	nodecg.Replicant('tip2Title', {defaultValue: 'Tip 2 Title'});
 	nodecg.Replicant('tip2Info', {defaultValue: 'Tip 2 Info'});
+
+	nodecg.Replicant('MVPName', {defaultValue: 'MVP'});
+	nodecg.Replicant('Map1PickedByTeam', {defaultValue: 'Map1PickedByTeam'});
+	nodecg.Replicant('Map2PickedByTeam', {defaultValue: 'Map2PickedByTeam'});
+	nodecg.Replicant('Map3PickedByTeam', {defaultValue: 'Map3PickedByTeam'});
+	nodecg.Replicant('MVPMap1KDA', {defaultValue: '0/0/0'});
+	nodecg.Replicant('MVPMap2KDA', {defaultValue: '0/0/0'});
+	nodecg.Replicant('MVPMap3KDA', {defaultValue: '0/0/0'});
+	nodecg.Replicant('sponsorLogo');
 };

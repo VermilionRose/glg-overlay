@@ -1,0 +1,148 @@
+@font-face {
+    font-family: Din Pro;
+    src: url(typefaces/DINProBlack.otf);
+}
+
+@font-face {
+    font-family: Boldine;
+    src: url(typefaces/Boldine.ttf);
+}
+
+@font-face {
+    font-family: Din Pro Light;
+    src: url(typefaces/DINProLight300.otf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#background {
+    background-color: none;
+}
+
+#mvp-name {
+    position: absolute;
+    left: 55px;
+    top: 150px;
+    font-family: Din Pro Light;
+    font-size: 60px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.team-pick {
+    color: black;
+    position: absolute;
+    left: 1060px;
+    top: 285px;
+    font-family: Din Pro;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+#team-pick-2 {
+    top: 440px;
+}
+
+#team-pick-3 {
+    top: 595px;
+}
+
+.team-pick-logo {
+    position: absolute;
+    left: 1060px;
+    top: 313px;
+	height: 86px;
+	width: 86px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.team-pick-logo > img {
+    aspect-ratio: 1 / 1;
+    width: 86px;
+	object-fit: contain;
+}
+
+#team-pick-logo-2{
+    top: 468px;
+}
+
+#team-pick-logo-3{
+    top: 623px;
+}
+
+.map, .gradient {
+    position: absolute;
+    left: 1155px;
+    top: 256px;
+    width: 757px;
+    height: 149px;
+    background-size: cover;
+    background-position: center;
+}
+
+#map2, #map2-gradient {
+    top: 411px;
+}
+
+#map3, #map3-gradient {
+    top: 566px;
+}
+
+.mapName {
+    color: white;
+    font-family: Din Pro;
+    text-transform: uppercase;
+    position: absolute;
+    left: 10px;
+    top: 25px;
+    font-size: 30px;
+}
+
+.mapScore {
+    color: white;
+    font-family: Din Pro;
+    text-transform: uppercase;
+    position: absolute;
+    left: 10px;
+    top: 65px;
+    font-size: 20px;
+}
+
+.KDAtext {
+    color: white;
+    font-family: Din Pro;
+    text-transform: uppercase;
+    position: absolute;
+    left: 500px;
+    top: 50px;
+    font-size: 30px;
+}
+
+.KDA {
+    color: white;
+    font-family: Din Pro;
+    text-transform: uppercase;
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    font-size: 30px;
+}
+
+#sponsor-logo {
+    position: absolute;
+    aspect-ratio: 1/1;
+    height: 200px;
+    top: 752px;
+    left: 1510px;
+    object-fit: cover;
+}

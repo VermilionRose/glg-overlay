@@ -89,6 +89,7 @@ h1 {
     font-size: 45px;
     font-weight: 300;
     margin-top: 40px;
+    color: #00B050;
 }
 
 h2 {
@@ -97,6 +98,7 @@ h2 {
     font-weight: lighter;
     letter-spacing: 1px;
     margin-top: 15px;
+    color: #FF0000;
 }
 
 h3 {
@@ -105,4 +107,5 @@ h3 {
     letter-spacing: 10px;
     margin-right: -10px;
     margin-bottom: -10px;
+    color: #FF0000;
 }

@@ -39,11 +39,13 @@ h1, h2{
     left: 50%;
     top: 50%;
     transform: translate(-50%, -60%);
+    color: #FF0000;
 }
 
 #host-name {
     font-size: 50px;
     transform: translate(-50%, -75%);
+    color: #00B050;
 }
 
 #glg-step-repeat {
@@ -53,8 +55,11 @@ h1, h2{
     display: flex;
     justify-content: flex-end;
     align-items: center;
+	/*mask: url(./images/3DeskMask.png) exclude;*/
     clip-path: polygon(49.75% 0%, 55.75% 0%, 50.25% 100%, 44.25% 100%);
+    /*clip-path: polygon(31.5% 0%, 37.5% 0%, 31.75% 100%, 26% 100%);*/
 }
+
 
 #lower-third, #lower-third-swapped {
     position: absolute;

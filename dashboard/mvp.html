@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>MVP</title>
+		<meta name="description" content="">
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<div>
+			<form id="update-mvp-information">
+                <div id="mvp-flex">
+                    <div>
+                        <label for="mvp-playerId">MVP Player Name</label>
+                        <input id="mvp-playerId">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="map1KDA">Map 1 KDA</label>
+                        <input id="map1KDA">
+                    </div>
+                    <div>
+                        <label for="map2KDA">Map 2 KDA</label>
+                        <input id="map2KDA">
+                    </div>
+                    <div>
+                        <label for="map3KDA">Map 3 KDA</label>
+                        <input id="map3KDA">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="map1-pickedBy">Map 1 Picked By</label>
+							<select id="map1-pickedBy">
+								<option value="none" selected>None</option>
+								<option class="team1NameClass" value="team1Name">Team 1</option>
+								<option class="team2NameClass" value="team2Name">Team 2</option>
+							</select>
+                    </div>
+                    <div>
+                        <label for="map2-pickedBy">Map 2 Picked By</label>
+							<select id="map2-pickedBy">
+								<option value="none" selected>None</option>
+								<option class="team1NameClass" value="team1Name">Team 1</option>
+								<option class="team2NameClass" value="team2Name">Team 2</option>
+							</select>
+                    </div>
+                    <div>
+                        <label for="map3-pickedBy">Map 3 Picked By</label>
+							<select id="map3-pickedBy">
+								<option value="none" selected>None</option>
+								<option class="team1NameClass" value="team1Name">Team 1</option>
+								<option class="team2NameClass" value="team2Name">Team 2</option>
+							</select>
+                    </div>
+                </div>
+				<br>
+                <div>
+                    <label for="sponsor-logo">Sponsor Logo</label>
+                    <input id="sponsor-logo">
+                </div>
+
+				<button type="submit">Update</button>
+			</form>
+		</div>
+
+		<script>
+
+            //dashboard change elements
+            const team1Name = nodecg.Replicant('team1Acronym');
+			const team2Name = nodecg.Replicant('team2Acronym');
+
+            team1Name.on('change', value => {
+				var classList = document.getElementsByClassName('team1NameClass');
+                for(var i = 0; i < classList.length; i++)
+                {
+                    classList[i].textContent = value;
+                };
+			});
+
+            team2Name.on('change', value => {
+				var classList = document.getElementsByClassName('team2NameClass');
+                for(var i = 0; i < classList.length; i++)
+                {
+                    classList[i].textContent = value;
+                };
+			});
+
+            //Replicants
+            const mvpName = nodecg.Replicant('MVPName');
+
+            const map1PickedByTeam = nodecg.Replicant('Map1PickedByTeam');
+            const map2PickedByTeam = nodecg.Replicant('Map2PickedByTeam');
+            const map3PickedByTeam = nodecg.Replicant('Map3PickedByTeam');
+
+            const mvpMap1KDA = nodecg.Replicant('MVPMap1KDA');
+            const mvpMap2KDA = nodecg.Replicant('MVPMap2KDA');
+            const mvpMap3KDA = nodecg.Replicant('MVPMap3KDA');
+
+            const sponsorLogo = nodecg.Replicant('sponsorLogo');
+
+            //input elements
+            const map1PBInput = document.getElementById('map1-pickedBy');
+            const map2PBInput = document.getElementById('map2-pickedBy');
+            const map3PBInput = document.getElementById('map3-pickedBy');
+
+            const map1KDA = document.getElementById('map1KDA');
+            const map2KDA = document.getElementById('map2KDA');
+            const map3KDA = document.getElementById('map3KDA');
+
+            const textForm = document.getElementById('update-mvp-information');
+            textForm.addEventListener('submit', e => {
+				e.preventDefault();
+
+                mvpName.value = document.getElementById('mvp-playerId').value;
+
+                map1PickedByTeam.value = map1PBInput.value;
+                map2PickedByTeam.value = map2PBInput.value;
+                map3PickedByTeam.value = map3PBInput.value;
+
+                mvpMap2KDA.value = map1KDA.value;
+                mvpMap1KDA.value = map2KDA.value;
+                mvpMap3KDA.value = map3KDA.value;
+
+                sponsorLogo.value = document.getElementById('sponsor-logo').value;
+			});
+
+		</script>
+	</body>
+</html>
